@@ -23,12 +23,12 @@ export default function BookingPage() {
       },
       images: {
         locationImages: [
-          "https://res.cloudinary.com/your-cloud-name/image/upload/gwangalli-location-1.jpg", // 광안리 장소 이미지 1
-          "https://res.cloudinary.com/your-cloud-name/image/upload/fence-location-1.jpg"      // 철망 장소 이미지 1
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748688745/20250531_194540_v6ktt8.png", // 광안리 장소 이미지 1
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748688745/20250531_194900_n4oh9y.png"      // 철망 장소 이미지 1
         ],
         shootingImages: [
-          "https://res.cloudinary.com/your-cloud-name/image/upload/gwangalli-shoot-1.jpg",    // 광안리 촬영 이미지 1
-          "https://res.cloudinary.com/your-cloud-name/image/upload/fence-shoot-1.jpg"         // 철망 촬영 이미지 1
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748673723/123_sibqu6.jpg",    // 광안리 촬영 이미지 1
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748689009/L1210421s_r0wkwt.png"         // 철망 촬영 이미지 1
         ]
       },
       popular: true
@@ -56,12 +56,12 @@ export default function BookingPage() {
       seasonNote: "갈대밭은 계절에 따라 여름에는 초록색, 가을로 넘어가며 갈대색상",
       images: {
         locationImages: [
-          "https://res.cloudinary.com/your-cloud-name/image/upload/dadaepo-location-1.jpg",   // 다대포 장소 이미지 1
-          "https://res.cloudinary.com/your-cloud-name/image/upload/reed-location-1.jpg"       // 갈대밭 장소 이미지 1
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748688745/20250531_195104_krd0eh.png",   // 다대포 장소 이미지 1
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748688747/20250531_190009_uqvy5x.png"       // 갈대밭 장소 이미지 1
         ],
         shootingImages: [
-          "https://res.cloudinary.com/your-cloud-name/image/upload/dadaepo-shoot-1.jpg",      // 다대포 촬영 이미지 1
-          "https://res.cloudinary.com/your-cloud-name/image/upload/reed-shoot-1.jpg"          // 갈대밭 촬영 이미지 1
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675711/10_qayg67.png",      // 다대포 촬영 이미지 1
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675711/8_i9wdsu.png"          // 갈대밭 촬영 이미지 1
         ]
       },
       popular: false
