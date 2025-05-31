@@ -1,47 +1,68 @@
 import Nav from '../../components/Nav'
 
 export default function BookingPage() {
-  const pricingPlans = [
+  const outdoorPackages = [
     {
-      name: "베이직",
-      price: "150,000원",
-      duration: "1시간",
-      photos: "20장",
-      features: [
-        "기본 리터칭",
-        "온라인 전송",
-        "1회 의상 체인지",
-        "기본 포즈 가이드"
+      name: "옵션 1",
+      subtitle: "광안리 + 철망",
+      price: "390,000원",
+      locations: [
+        { name: "광안리", address: "부산 수영구 광안해변로" },
+        { name: "철망", address: "부산 남구 신선로 356" }
       ],
-      popular: false
-    },
-    {
-      name: "프리미엄",
-      price: "250,000원", 
-      duration: "2시간",
-      photos: "40장",
       features: [
-        "고급 리터칭",
-        "온라인 + USB 제공",
-        "3회 의상 체인지",
-        "전문 포즈 가이드",
-        "메이크업 컨설팅"
+        "원본 300장 이상",
+        "보정본 4장",
+        "2개 촬영지",
+        "인원추가 +50,000원"
       ],
+      outfitGuide: {
+        "광안리": "흰색 또는 블랙 위주의 단색 비키니 또는 모노키니 추천",
+        "철망": "스트릿 또는 힙한 의상 및 비키니, 모자 추천"
+      },
+      images: {
+        locationImages: [
+          "https://res.cloudinary.com/your-cloud-name/image/upload/gwangalli-location-1.jpg", // 광안리 장소 이미지 1
+          "https://res.cloudinary.com/your-cloud-name/image/upload/fence-location-1.jpg"      // 철망 장소 이미지 1
+        ],
+        shootingImages: [
+          "https://res.cloudinary.com/your-cloud-name/image/upload/gwangalli-shoot-1.jpg",    // 광안리 촬영 이미지 1
+          "https://res.cloudinary.com/your-cloud-name/image/upload/fence-shoot-1.jpg"         // 철망 촬영 이미지 1
+        ]
+      },
       popular: true
     },
     {
-      name: "럭셔리",
-      price: "400,000원",
-      duration: "3시간",
-      photos: "60장",
-      features: [
-        "프리미엄 리터칭",
-        "모든 원본 파일 제공",
-        "무제한 의상 체인지",
-        "1:1 전문 코칭",
-        "헤어 & 메이크업 포함",
-        "당일 미리보기 제공"
+      name: "옵션 2",
+      subtitle: "다대포 + 갈대밭",
+      price: "450,000원",
+      timeRestriction: "오후 4시 이후 전용",
+      locations: [
+        { name: "다대포 해수욕장", address: "부산 사하구 몰운대1길 14" },
+        { name: "다대포 갈대밭", address: "다대포 해수욕장 일원" }
       ],
+      features: [
+        "원본 300장 이상",
+        "보정본 4장", 
+        "2개 촬영지",
+        "인원추가 +50,000원",
+        "갈대 계절별 색상 변화"
+      ],
+      outfitGuide: {
+        "다대포": "흰색 또는 블랙 위주의 단색 비키니 또는 모노키니 추천",
+        "갈대밭": "비키니&모노키니 + 블랙 수트 또는 흰색 셔츠 조합 추천"
+      },
+      seasonNote: "갈대밭은 계절에 따라 여름에는 초록색, 가을로 넘어가며 갈대색상",
+      images: {
+        locationImages: [
+          "https://res.cloudinary.com/your-cloud-name/image/upload/dadaepo-location-1.jpg",   // 다대포 장소 이미지 1
+          "https://res.cloudinary.com/your-cloud-name/image/upload/reed-location-1.jpg"       // 갈대밭 장소 이미지 1
+        ],
+        shootingImages: [
+          "https://res.cloudinary.com/your-cloud-name/image/upload/dadaepo-shoot-1.jpg",      // 다대포 촬영 이미지 1
+          "https://res.cloudinary.com/your-cloud-name/image/upload/reed-shoot-1.jpg"          // 갈대밭 촬영 이미지 1
+        ]
+      },
       popular: false
     }
   ]
@@ -58,65 +79,121 @@ export default function BookingPage() {
           {/* 페이지 제목 */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              온라인 예약
+              부산 야외촬영
             </h1>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              원하시는 날짜와 시간을 선택하여 간편하게 예약하세요
+              바다와 도시가 어우러진 부산에서만 가능한 특별한 야외촬영
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             
-            {/* Calendly Embed */}
+            {/* 예약 안내 */}
             <div className="order-2 lg:order-1">
-              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-                  예약 달력
+                  예약 안내
                 </h2>
                 
-                {/* Calendly iframe */}
-                <div className="relative w-full h-[600px] rounded-lg overflow-hidden">
-                  <iframe
-                    src="https://calendly.com/example-studio/body-profile-session"
-                    width="100%"
-                    height="100%"
-                    frameBorder="0"
-                    title="예약 달력"
-                    className="rounded-lg"
-                  ></iframe>
+                {/* 운영 시간 */}
+                <div className="mb-8">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                    📅 촬영 가능 시간
+                  </h3>
+                  <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                    <div className="text-center mb-4">
+                      <span className="text-xl font-bold text-blue-600 dark:text-blue-400">
+                        주말만 운영 (토요일, 일요일)
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-3 gap-3">
+                      <div className="text-center p-3 bg-white dark:bg-gray-800 rounded-lg">
+                        <div className="text-lg font-bold text-gray-900 dark:text-white">오전</div>
+                        <div className="text-blue-600 dark:text-blue-400 font-semibold">09:00</div>
+                      </div>
+                      <div className="text-center p-3 bg-white dark:bg-gray-800 rounded-lg">
+                        <div className="text-lg font-bold text-gray-900 dark:text-white">오후</div>
+                        <div className="text-blue-600 dark:text-blue-400 font-semibold">14:00</div>
+                      </div>
+                      <div className="text-center p-3 bg-white dark:bg-gray-800 rounded-lg">
+                        <div className="text-lg font-bold text-gray-900 dark:text-white">저녁</div>
+                        <div className="text-blue-600 dark:text-blue-400 font-semibold">17:00</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 예약 방법 */}
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                    📝 예약 방법
+                  </h3>
+                  <div className="space-y-3 text-gray-600 dark:text-gray-300">
+                    <div className="flex items-start">
+                      <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
+                      <span>원하는 옵션 선택</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</span>
+                      <span>아래 카카오톡으로 연락</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</span>
+                      <span>희망 날짜/시간 + 옵션명 전송</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">4</span>
+                      <span>예약 확정 및 사전 결제</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 자동 예약 버튼 */}
+                <div className="space-y-3">
+                  <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center">
+                    <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                    </svg>
+                    카카오톡 예약하기
+                  </button>
+                  
+                  <div className="text-center text-sm text-gray-500 dark:text-gray-400">
+                    "옵션번호 + 희망날짜/시간"만 보내주세요!<br/>
+                    예: "옵션1 + 6월 8일 오후 2시"
+                  </div>
                 </div>
                 
                 <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                   <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">
-                    예약 전 확인사항
+                    ⚠️ 야외촬영 주의사항
                   </h3>
                   <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-1">
-                    <li>• 예약 변경은 촬영 24시간 전까지 가능합니다</li>
-                    <li>• 당일 취소 시 50% 취소 수수료가 발생합니다</li>
-                    <li>• 의상은 2-3벌 준비해 주세요</li>
-                    <li>• 촬영 1시간 전 가벼운 식사를 권장합니다</li>
+                    <li>• 날씨에 따라 촬영 일정 변경 가능</li>
+                    <li>• 우천 시 실내 대체 장소 제공</li>
+                    <li>• 의상은 옵션별 추천 의상 참고</li>
+                    <li>• 이동 시간 포함 3-4시간 소요</li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            {/* 가격표 */}
+            {/* 야외촬영 패키지 */}
             <div className="order-1 lg:order-2">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-                촬영 패키지
+                야외촬영 옵션
               </h2>
               
-              <div className="space-y-6">
-                {pricingPlans.map((plan, index) => (
+              <div className="space-y-8">
+                {outdoorPackages.map((option, index) => (
                   <div
                     key={index}
                     className={`relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-2 transition-all duration-300 hover:shadow-xl ${
-                      plan.popular 
+                      option.popular 
                         ? 'border-blue-500 ring-2 ring-blue-200 dark:ring-blue-800' 
                         : 'border-gray-200 dark:border-gray-700 hover:border-blue-300'
                     }`}
                   >
-                    {plan.popular && (
+                    {option.popular && (
                       <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                         <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
                           인기
@@ -125,47 +202,134 @@ export default function BookingPage() {
                     )}
                     
                     <div className="text-center mb-6">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                        {plan.name}
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                        {option.name}
                       </h3>
+                      <h4 className="text-lg text-blue-600 dark:text-blue-400 mb-2">
+                        {option.subtitle}
+                      </h4>
                       <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-1">
-                        {plan.price}
+                        {option.price}
                       </div>
-                      <div className="text-sm text-gray-500 dark:text-gray-400">
-                        촬영시간: {plan.duration} | 제공사진: {plan.photos}
+                      {option.timeRestriction && (
+                        <div className="text-sm text-orange-600 dark:text-orange-400 font-semibold">
+                          {option.timeRestriction}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* 촬영지 정보 */}
+                    <div className="mb-6">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                        📍 촬영지
+                      </h4>
+                      <div className="space-y-2">
+                        {option.locations.map((location, locIndex) => (
+                          <div key={locIndex} className="text-sm">
+                            <div className="font-medium text-gray-900 dark:text-white">
+                              {location.name}
+                            </div>
+                            <div className="text-gray-500 dark:text-gray-400">
+                              {location.address}
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
-                    
-                    <ul className="space-y-3 mb-6">
-                      {plan.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center text-gray-600 dark:text-gray-300">
-                          <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
-                          </svg>
-                          <span className="text-sm">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+
+                    {/* 이미지 갤러리 */}
+                    <div className="mb-6">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                        📷 촬영지 & 작품 미리보기
+                      </h4>
+                      <div className="grid grid-cols-2 gap-3">
+                        {/* 장소 이미지들 */}
+                        {option.images.locationImages.map((image, imgIndex) => (
+                          <div key={`location-${imgIndex}`} className="relative">
+                            <img 
+                              src={image} 
+                              alt={`${option.subtitle} 장소 ${imgIndex + 1}`}
+                              className="w-full h-32 object-cover rounded-lg"
+                              onError={(e) => {
+                                e.target.src = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23f3f4f6"/><text x="100" y="100" text-anchor="middle" fill="%236b7280" font-size="14">장소 ${imgIndex + 1}</text></svg>`
+                              }}
+                            />
+                            <div className="absolute top-2 left-2 bg-blue-500 text-white px-2 py-1 rounded text-xs">
+                              장소
+                            </div>
+                          </div>
+                        ))}
+                        {/* 촬영 이미지들 */}
+                        {option.images.shootingImages.map((image, imgIndex) => (
+                          <div key={`shooting-${imgIndex}`} className="relative">
+                            <img 
+                              src={image} 
+                              alt={`${option.subtitle} 작품 ${imgIndex + 1}`}
+                              className="w-full h-32 object-cover rounded-lg"
+                              onError={(e) => {
+                                e.target.src = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23f3f4f6"/><text x="100" y="100" text-anchor="middle" fill="%236b7280" font-size="14">작품 ${imgIndex + 1}</text></svg>`
+                              }}
+                            />
+                            <div className="absolute top-2 left-2 bg-purple-500 text-white px-2 py-1 rounded text-xs">
+                              작품
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* 포함사항 */}
+                    <div className="mb-6">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                        ✅ 포함사항
+                      </h4>
+                      <ul className="space-y-2">
+                        {option.features.map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-center text-gray-600 dark:text-gray-300">
+                            <svg className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                            </svg>
+                            <span className="text-sm">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* 의상 가이드 */}
+                    <div className="mb-6">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                        👗 추천 의상
+                      </h4>
+                      <div className="space-y-3">
+                        {Object.entries(option.outfitGuide).map(([location, guide], guideIndex) => (
+                          <div key={guideIndex} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
+                            <div className="font-medium text-gray-900 dark:text-white text-sm mb-1">
+                              {location}
+                            </div>
+                            <div className="text-xs text-gray-600 dark:text-gray-300">
+                              {guide}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      {option.seasonNote && (
+                        <div className="mt-3 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                          <div className="text-xs text-yellow-800 dark:text-yellow-200">
+                            💡 {option.seasonNote}
+                          </div>
+                        </div>
+                      )}
+                    </div>
                     
                     <button className={`w-full py-3 px-4 rounded-lg font-semibold transition-all duration-300 ${
-                      plan.popular
+                      option.popular
                         ? 'bg-blue-600 hover:bg-blue-700 text-white'
                         : 'bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-white'
                     }`}>
-                      {plan.name} 패키지 선택
+                      {option.name} 선택하기
                     </button>
                   </div>
                 ))}
-              </div>
-              
-              {/* 문의하기 */}
-              <div className="mt-8 text-center">
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  맞춤 패키지가 필요하신가요?
-                </p>
-                <button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
-                  카톡 상담하기
-                </button>
               </div>
             </div>
           </div>

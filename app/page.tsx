@@ -8,7 +8,7 @@ import Nav from '../components/Nav'
 
 // 화면 크기 감지 훅
 function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMobile, setIsMobile] = useState(true)
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -235,7 +235,7 @@ export default function HomePage() {
                 quality={85}
               />
               {/* 어두운 오버레이 */}
-              <div className="absolute inset-0 bg-black/20 z-10"></div>
+              <div className="absolute inset-0 bg-black/10 z-10"></div>
             </div>
           ))}
 
