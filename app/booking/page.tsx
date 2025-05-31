@@ -252,7 +252,7 @@ export default function BookingPage() {
                               alt={`${option.subtitle} 장소 ${imgIndex + 1}`}
                               width={200}
                               height={128}
-                              className="w-full h-32 object-cover rounded-lg"
+                              className="w-full h-32 object-contain bg-gray-100 dark:bg-gray-700 rounded-lg"
                               unoptimized
                             />
                             <div className="absolute top-2 left-2 bg-blue-500 text-white px-2 py-1 rounded text-xs">
@@ -268,7 +268,7 @@ export default function BookingPage() {
                               alt={`${option.subtitle} 작품 ${imgIndex + 1}`}
                               width={200}
                               height={128}
-                              className="w-full h-32 object-cover rounded-lg"
+                              className="w-full h-32 object-contain bg-gray-100 dark:bg-gray-700 rounded-lg"
                               unoptimized
                             />
                             <div className="absolute top-2 left-2 bg-purple-500 text-white px-2 py-1 rounded text-xs">
