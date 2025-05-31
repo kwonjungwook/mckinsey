@@ -38,7 +38,7 @@ export default function HomePage() {
   const heroImages: HeroImage[] = [
     {
       id: 1,
-      src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748678877/garo4_stfpxa.png",
       mobileSrc: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748672672/2_wvbhln.png",
       alt: "바디프로필 촬영 - 강력한 포즈",
       title: "Body Profile by Mckinsey Studio",
@@ -46,24 +46,24 @@ export default function HomePage() {
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
-      mobileSrc: "https://images.unsplash.com/photo-1550345332-09e3ac987658?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&h=1920&q=85",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748678877/garo1_l1eewg.png",
+      mobileSrc: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675711/12_gknc5q.png",
       alt: "바디프로필 촬영 - 우아한 실루엣",
       title: "Professional Body Profile",
       subtitle: "프리미엄 바디프로필 전문 스튜디오"
     },
     {
       id: 3,
-      src: "https://images.unsplash.com/photo-1506629905607-296e80317511?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
-      mobileSrc: "https://images.unsplash.com/photo-1549576490-b0b4831ef60a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&h=1920&q=85",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748678876/garo2_ghfime.png",
+      mobileSrc: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675007/L2310757_steot9.jpg",
       alt: "바디프로필 촬영 - 자연스러운 매력",
       title: "Capture Your Best Moment",
       subtitle: "최고의 퀄리티로 완성하는 특별한 경험"
     },
     {
       id: 4,
-      src: "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
-      mobileSrc: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&h=1920&q=85",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748678876/garo3_imvjgm.png",
+      mobileSrc: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748672672/1_azcltq.png",
       alt: "바디프로필 촬영 - 역동적인 움직임",
       title: "Transform Your Vision",
       subtitle: "당신만의 스토리를 담아내는 전문 촬영"
@@ -74,42 +74,42 @@ export default function HomePage() {
   const portfolioImages = [
     {
       id: 1,
-      src: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675711/8_i9wdsu.png",
       alt: "바디프로필 작품 1"
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748677591/19_zoahb1.png",
       alt: "바디프로필 작품 2"
     },
     {
       id: 3,
-      src: "https://images.unsplash.com/photo-1582896911227-c966f6e7fb91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675712/11_ae4y3i.png",
       alt: "바디프로필 작품 3"
     },
     {
       id: 4,
-      src: "https://images.unsplash.com/photo-1524863479829-916d8e77f114?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748673723/123_sibqu6.jpg",
       alt: "바디프로필 작품 4"
     },
     {
       id: 5,
-      src: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748672672/3_fsotgd.png",
       alt: "바디프로필 작품 5"
     },
     {
       id: 6,
-      src: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748674875/L1020401_jfj5py.jpg",
       alt: "바디프로필 작품 6"
     },
     {
       id: 7,
-      src: "https://images.unsplash.com/photo-1550345332-09e3ac987658?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748672672/4_b6n4gp.png",
       alt: "바디프로필 작품 7"
     },
     {
       id: 8,
-      src: "https://images.unsplash.com/photo-1549576490-b0b4831ef60a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748674882/L1020302_whnmak.jpg",
       alt: "바디프로필 작품 8"
     }
   ]
@@ -235,7 +235,7 @@ export default function HomePage() {
                 quality={85}
               />
               {/* 어두운 오버레이 */}
-              <div className="absolute inset-0 bg-black/40 z-10"></div>
+              <div className="absolute inset-0 bg-black/20 z-10"></div>
             </div>
           ))}
 
