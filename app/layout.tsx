@@ -1,8 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Dancing_Script } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
+const dancingScript = Dancing_Script({ 
+  subsets: ['latin'],
+  variable: '--font-dancing-script'
+})
 
 export const metadata: Metadata = {
   title: 'Mckinsey Studio - 바디프로필 전문 스튜디오',
@@ -16,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" className="scroll-smooth">
-      <body className={inter.className}>
+      <body className={`${inter.className} ${dancingScript.variable}`}>
         {children}
       </body>
     </html>

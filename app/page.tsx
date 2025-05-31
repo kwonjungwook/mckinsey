@@ -63,7 +63,7 @@ export default function HomePage() {
     {
       id: 4,
       src: "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
-      // mobileSrc 없음 - 기본 이미지 사용
+      mobileSrc: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&h=1920&q=85",
       alt: "바디프로필 촬영 - 역동적인 움직임",
       title: "Transform Your Vision",
       subtitle: "당신만의 스토리를 담아내는 전문 촬영"
@@ -202,7 +202,7 @@ export default function HomePage() {
       <Nav />
       
       {/* 히어로 슬라이드 섹션 */}
-      <main className="pt-16">
+      <main>
         <section 
           ref={sliderRef}
           className="relative h-[95vh] sm:h-[90vh] md:h-screen flex items-center justify-center overflow-hidden select-none"
@@ -260,7 +260,7 @@ export default function HomePage() {
 
           {/* 중앙 텍스트 콘텐츠 */}
           <div className="relative z-20 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-6 transition-all duration-700 leading-tight">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-6 transition-all duration-700 leading-tight font-[var(--font-dancing-script)]">
               {heroImages[currentSlide]?.title}
             </h1>
             <div className="h-px bg-white/30 w-12 sm:w-16 md:w-24 mx-auto mb-4 md:mb-8"></div>
