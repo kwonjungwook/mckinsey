@@ -37,7 +37,7 @@ export default function BookingPage() {
       name: "옵션 2",
       subtitle: "다대포 + 갈대밭",
       price: "450,000원",
-      timeRestriction: "오후 4시 이후 전용",
+      timeRestriction: "오후 5시 이후 전용",
       locations: [
         { name: "다대포 해수욕장", address: "부산 사하구 몰운대1길 14" },
         { name: "다대포 갈대밭", address: "다대포 해수욕장 일원" }
