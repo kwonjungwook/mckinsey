@@ -86,10 +86,10 @@ export default function HomePage() {
   // 상태 관리
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlay, setIsAutoPlay] = useState(true)
-  const [touchStart, setTouchStart] = useState(null)
-  const [touchEnd, setTouchEnd] = useState(null)
+  const [touchStart, setTouchStart] = useState<number | null>(null)
+  const [touchEnd, setTouchEnd] = useState<number | null>(null)
   const [isMounted, setIsMounted] = useState(false)
-  const sliderRef = useRef(null)
+  const sliderRef = useRef<HTMLElement>(null)
 
   // 컴포넌트 마운트 확인
   useEffect(() => {
@@ -124,20 +124,20 @@ export default function HomePage() {
   const minSwipeDistance = 50
 
   // 터치 시작
-  const onTouchStart = (e) => {
+  const onTouchStart = (e: React.TouchEvent<HTMLElement>) => {
     setTouchEnd(null) // 이전 터치 종료 위치 초기화
     setTouchStart(e.touches[0].clientX)
     setIsAutoPlay(false) // 터치 중 자동 전환 중지
   }
 
   // 터치 이동
-  const onTouchMove = (e) => {
+  const onTouchMove = (e: React.TouchEvent<HTMLElement>) => {
     if (!touchStart) return
     setTouchEnd(e.touches[0].clientX)
   }
 
   // 터치 종료
-  const onTouchEnd = (e) => {
+  const onTouchEnd = (e: React.TouchEvent<HTMLElement>) => {
     if (!touchStart || !touchEnd) {
       setIsAutoPlay(true)
       return
