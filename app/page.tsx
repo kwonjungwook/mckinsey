@@ -6,12 +6,40 @@ import Link from 'next/link'
 import Nav from '../components/Nav'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
+// 화면 크기 감지 훅
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768) // md 브레이크포인트
+    }
+
+    checkIsMobile()
+    window.addEventListener('resize', checkIsMobile)
+    return () => window.removeEventListener('resize', checkIsMobile)
+  }, [])
+
+  return isMobile
+}
+
 export default function HomePage() {
-  // 히어로 슬라이드 이미지들
-  const heroImages = [
+  // 이미지 타입 정의
+  type HeroImage = {
+    id: number
+    src: string
+    mobileSrc?: string // 선택적 필드
+    alt: string
+    title: string
+    subtitle: string
+  }
+
+  // 히어로 슬라이드 이미지들 (모바일 전용 세로 이미지 포함)
+  const heroImages: HeroImage[] = [
     {
       id: 1,
       src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+      mobileSrc: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&h=1920&q=85",
       alt: "바디프로필 촬영 - 강력한 포즈",
       title: "Body Profile by Mckinsey Studio",
       subtitle: "당신의 아름다운 순간을 영원히 담아내는"
@@ -19,6 +47,7 @@ export default function HomePage() {
     {
       id: 2,
       src: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+      mobileSrc: "https://images.unsplash.com/photo-1550345332-09e3ac987658?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&h=1920&q=85",
       alt: "바디프로필 촬영 - 우아한 실루엣",
       title: "Professional Body Profile",
       subtitle: "프리미엄 바디프로필 전문 스튜디오"
@@ -26,6 +55,7 @@ export default function HomePage() {
     {
       id: 3,
       src: "https://images.unsplash.com/photo-1506629905607-296e80317511?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+      mobileSrc: "https://images.unsplash.com/photo-1549576490-b0b4831ef60a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&h=1920&q=85",
       alt: "바디프로필 촬영 - 자연스러운 매력",
       title: "Capture Your Best Moment",
       subtitle: "최고의 퀄리티로 완성하는 특별한 경험"
@@ -33,6 +63,7 @@ export default function HomePage() {
     {
       id: 4,
       src: "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+      // mobileSrc 없음 - 기본 이미지 사용
       alt: "바디프로필 촬영 - 역동적인 움직임",
       title: "Transform Your Vision",
       subtitle: "당신만의 스토리를 담아내는 전문 촬영"
@@ -90,6 +121,12 @@ export default function HomePage() {
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
   const [isMounted, setIsMounted] = useState(false)
   const sliderRef = useRef<HTMLElement>(null)
+  const isMobile = useIsMobile() // 모바일 감지
+
+  // 현재 화면 크기에 맞는 이미지 URL 반환
+  const getCurrentImageSrc = (image: HeroImage) => {
+    return isMobile && image.mobileSrc ? image.mobileSrc : image.src
+  }
 
   // 컴포넌트 마운트 확인
   useEffect(() => {
@@ -189,7 +226,7 @@ export default function HomePage() {
               }`}
             >
               <Image
-                src={image.src}
+                src={getCurrentImageSrc(image)}
                 alt={image.alt}
                 fill
                 className="object-cover object-center"
