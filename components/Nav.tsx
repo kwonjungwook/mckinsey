@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
-import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
+import Link from 'next/link'
+import { useState } from 'react'
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,7 +21,8 @@ export default function Nav() {
           <div className="flex-shrink-0">
             <Link 
               href="/" 
-              className="text-2xl font-bold text-white hover:text-blue-300 transition-colors"
+              className="text-2xl font-bold text-white hover:text-blue-300 transition-colors font-serif italic"
+              style={{ fontFamily: 'Dancing Script, Brush Script MT, cursive' }}
             >
               Mckinsey Studio
             </Link>
