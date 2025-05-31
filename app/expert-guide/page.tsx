@@ -46,7 +46,7 @@ export default function ExpertGuidePage() {
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
                     근육을 <strong>말렸다가 단숨에 다시 채워 넣는</strong> 방법입니다. 
-                    '비우기-채우기' 순서를 지키면 촬영 당일 근육은 풍선처럼 팽팽하고 피부는 종이처럼 얇아집니다.
+                    &apos;비우기-채우기&apos; 순서를 지키면 촬영 당일 근육은 풍선처럼 팽팽하고 피부는 종이처럼 얇아집니다.
                   </p>
                   
                   <div className="grid md:grid-cols-2 gap-6">
@@ -57,7 +57,7 @@ export default function ExpertGuidePage() {
                       </p>
                       <div className="text-xs text-gray-500 dark:text-gray-400">
                         <p>• 탄수화물 ≤ 1g/kg 하루</p>
-                        <p>• 근육이 물까지 잃어 '납작하지만 선명한' 상태</p>
+                        <p>• 근육이 물까지 잃어 &apos;납작하지만 선명한&apos; 상태</p>
                         <p>• 동시에 에너지 흡수 능력이 급상승</p>
                       </div>
                     </div>
@@ -69,7 +69,7 @@ export default function ExpertGuidePage() {
                       </p>
                       <div className="text-xs text-gray-500 dark:text-gray-400">
                         <p>• 탄수화물 7-10g/kg 하루</p>
-                        <p>• "마른 스펀지"가 에너지와 물을 급속 흡수</p>
+                        <p>• &quot;마른 스펀지&quot;가 에너지와 물을 급속 흡수</p>
                         <p>• 근육 셀 부피가 부풀고 혈관이 도드라짐</p>
                       </div>
                     </div>
@@ -108,9 +108,9 @@ export default function ExpertGuidePage() {
                     ⚠️ 실패를 막는 세 가지 팁
                   </h3>
                   <div className="space-y-3 text-sm text-gray-600 dark:text-gray-300">
-                    <p><strong>1. 밴딩 없이 로딩만?</strong> 체중이 '부어' 버리고 복근 선이 사라집니다. 밴딩으로 에너지 저장소를 먼저 비워야 과흡수 효과가 생깁니다.</p>
-                    <p><strong>2. 지나친 탈수 금지</strong> 체중의 2% 이상 물을 빼면 혈액량이 줄어 근육이 부풀지 않습니다. '적당히' 마른 상태가 사진발 최적입니다.</p>
-                    <p><strong>3. 과일로만 로딩?</strong> 과당은 근육보다 간으로 먼저 가기 때문에 '복근 팽팽함'에는 비효율적입니다. 첫날은 포도당/쌀밥 위주로 하세요.</p>
+                    <p><strong>1. 밴딩 없이 로딩만?</strong> 체중이 &apos;부어&apos; 버리고 복근 선이 사라집니다. 밴딩으로 에너지 저장소를 먼저 비워야 과흡수 효과가 생깁니다.</p>
+                    <p><strong>2. 지나친 탈수 금지</strong> 체중의 2% 이상 물을 빼면 혈액량이 줄어 근육이 부풀지 않습니다. &apos;적당히&apos; 마른 상태가 사진발 최적입니다.</p>
+                    <p><strong>3. 과일로만 로딩?</strong> 과당은 근육보다 간으로 먼저 가기 때문에 &apos;복근 팽팽함&apos;에는 비효율적입니다. 첫날은 포도당/쌀밥 위주로 하세요.</p>
                   </div>
                 </div>
               </div>
@@ -137,7 +137,7 @@ export default function ExpertGuidePage() {
                 <div className="bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 p-6 rounded-lg border border-cyan-200 dark:border-cyan-800">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">💧 안전한 수분 관리</h3>
                   <div className="space-y-3 text-gray-600 dark:text-gray-300">
-                    <p><strong>기본 원칙</strong>: 평소 수분 섭취량(체중 1kg당 35-45ml) 유지하다가 24시간 전부터 '가볍게' 줄이기 (체중의 1-2% 정도)</p>
+                    <p><strong>기본 원칙</strong>: 평소 수분 섭취량(체중 1kg당 35-45ml) 유지하다가 24시간 전부터 &apos;가볍게&apos; 줄이기 (체중의 1-2% 정도)</p>
                     <p><strong>소금 섭취</strong>: 완전히 끊지 말고 평소 섭취량(하루 2-3g) 유지해서 세포가 적절히 부풀어 있도록 하기</p>
                     <p className="text-red-600 dark:text-red-400 font-medium">⚠️ 주의: 많은 바디빌더들이 대회 당일 심한 탈수 상태가 됩니다. 안전을 위해 적당한 선에서 멈추세요</p>
                   </div>
@@ -176,7 +176,7 @@ export default function ExpertGuidePage() {
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">💪 촬영 직전 근육 부풀리기</h3>
                   <div className="space-y-3 text-gray-600 dark:text-gray-300">
                     <p><strong>타이밍</strong>: 촬영 30분 전에 저항밴드나 가벼운 덤벨로 각 부위별 3세트씩 (12-15회, 60초 휴식)</p>
-                    <p><strong>효과</strong>: 탄수화물이 가득 찬 상태에서 국소적으로 혈류를 증가시키면 최대 '팽창' 효과가 나타남</p>
+                    <p><strong>효과</strong>: 탄수화물이 가득 찬 상태에서 국소적으로 혈류를 증가시키면 최대 &apos;팽창&apos; 효과가 나타남</p>
                     <p className="text-purple-600 dark:text-purple-400 font-medium">🔬 원리: 탄수화물 로딩과 국소 펌핑 운동을 조합하면 시각적으로 근육 부피가 최대화됩니다</p>
                   </div>
                 </div>
@@ -203,7 +203,7 @@ export default function ExpertGuidePage() {
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">💡 조명과 오일 사용법</h3>
                   <div className="space-y-3 text-gray-600 dark:text-gray-300">
                     <p><strong>조명</strong>: 45도 측면에서 부드러운 조명이 근육 라인을 가장 잘 살려줍니다</p>
-                    <p><strong>바디오일</strong>: 하이라이트용 오일을 '소량만' 사용 (번들거리지 않고 '새틴' 같은 질감이 목표)</p>
+                    <p><strong>바디오일</strong>: 하이라이트용 오일을 &apos;소량만&apos; 사용 (번들거리지 않고 &apos;새틴&apos; 같은 질감이 목표)</p>
                     <p className="text-yellow-600 dark:text-yellow-400 font-medium">⚠️ 주의: 너무 많은 오일은 하이라이트가 번져 보이므로 중간 정도의 반사율이 최적입니다</p>
                   </div>
                 </div>
@@ -258,7 +258,7 @@ export default function ExpertGuidePage() {
               
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800">
-                  <h3 className="text-xl font-semibold text-green-700 dark:text-green-400 mb-4">🛡️ 안전 중심 "촬영용"</h3>
+                  <h3 className="text-xl font-semibold text-green-700 dark:text-green-400 mb-4">🛡️ 안전 중심 &quot;촬영용&quot;</h3>
                   <div className="space-y-2 text-gray-600 dark:text-gray-300">
                     <p>• 탈수 최소화 (체중의 1-2%만)</p>
                     <p>• 탄수화물 적당히 늘리기</p>
@@ -269,7 +269,7 @@ export default function ExpertGuidePage() {
                 </div>
                 
                 <div className="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg border border-red-200 dark:border-red-800">
-                  <h3 className="text-xl font-semibold text-red-700 dark:text-red-400 mb-4">⚡ 극한 방식 "대회식"</h3>
+                  <h3 className="text-xl font-semibold text-red-700 dark:text-red-400 mb-4">⚡ 극한 방식 &quot;대회식&quot;</h3>
                   <div className="space-y-2 text-gray-600 dark:text-gray-300">
                     <p>• 체중의 3-4% 수분 제거</p>
                     <p>• 체중 1kg당 10g 이상 탄수화물</p>
@@ -289,7 +289,7 @@ export default function ExpertGuidePage() {
                 📋 간단 체크리스트
               </h2>
               
-              <div className="grid md:grid-cols-2 gap-6 text-sm">
+              <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-600 dark:text-gray-300">
                 <div className="space-y-3">
                   <p><strong>촬영 7일 전</strong>: 각질제거·보습 시작, 탄수화물 줄이기·운동 강도 유지</p>
                   <p><strong>촬영 3일 전</strong>: 탄수화물 늘리기 시작, 수분 섭취는 그대로</p>
