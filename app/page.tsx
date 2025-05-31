@@ -105,7 +105,7 @@ export default function HomePage() {
     setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length)
   }, [heroImages.length])
 
-  const goToSlide = useCallback((index) => {
+  const goToSlide = useCallback((index: number) => {
     setCurrentSlide(index)
   }, [])
 
@@ -175,7 +175,7 @@ export default function HomePage() {
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
           style={{ 
-            touchAction: 'pan-y pinch-zoom',
+            touchAction: 'manipulation',
             WebkitUserSelect: 'none',
             userSelect: 'none'
           }}
