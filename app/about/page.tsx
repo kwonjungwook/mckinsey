@@ -54,7 +54,7 @@ export default function AboutPage() {
 
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                    메이크업 & 헤어
+                    메이크업 &amp; 헤어
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                     야외 촬영 특성상 자연스러운 메이크업을 권장합니다. 바람과 습도에 대비해 
@@ -186,116 +186,192 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* 4. 바디프로필 과학적 가이드 */}
+          {/* 4. 바디프로필 전문가 가이드 */}
           <section className="mb-16">
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-                🧬 바디프로필 과학적 가이드
+                🧬 바디프로필 전문가 가이드
               </h2>
               
               <div className="space-y-8">
-                {/* 장기 준비 (6개월~3개월 전) */}
+                {/* 촬영 전 4주~1일 */}
                 <div>
                   <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                    📅 장기 준비 (6개월~3개월 전)
+                    📅 촬영 전 (4주 → 1일)
                   </h3>
                   
                   <div className="space-y-4">
-                    <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">과학적 식단 관리</h4>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        • <strong>체지방률 목표</strong>: 남성 9% 이하, 여성 15% 이하 (정상: 남성 15-20%, 여성 20-25%)<br/>
-                        • <strong>감량 속도</strong>: 한 달에 체중의 5% 내외, 일반적으로 2-3kg 감량 권장<br/>
-                        • <strong>영양 균형</strong>: 탄수화물, 단백질, 지방, 식이섬유의 균형 잡힌 섭취<br/>
-                        • <strong>개인 맞춤</strong>: 획일화된 '닭가슴살+고구마' 방식보다 개인별 맞춤 식단
-                      </p>
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">🔥 근육 볼륨 극대화: 탄수화물 고갈-재충전</h4>
+                      <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <p><strong>1단계 (5-6일 전까지)</strong>: 훈련 강도 유지하며 탄수화물 2-3g/kg 이하로 제한</p>
+                        <p><strong>2단계 (2-3일 전부터)</strong>: 탄수화물 7-10g/kg + 평소 단백질·지방 유지</p>
+                        <p className="text-blue-600 dark:text-blue-400 font-medium">📊 <em>2024년 Nutrition 연구</em>: 3일 로딩 후 상완 둘레·초음파 두께 3-4% 증가, 피하지방 시각적 감소</p>
+                      </div>
                     </div>
 
-                    <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">운동 프로그램</h4>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        • <strong>근력운동</strong>: 주 6일, 하루 1-2회, 3분할(가슴/등/어깨/하체)<br/>
-                        • <strong>유산소운동</strong>: 근력운동 후 20분 또는 공복 50분 산책<br/>
-                        • <strong>생활 유산소</strong>: 일상 활동 중 걷기 늘리기<br/>
-                        • <strong>준비 기간</strong>: 최소 6개월~1년 권장
-                      </p>
+                    <div className="bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 p-6 rounded-lg border border-cyan-200 dark:border-cyan-800">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">💧 안전한 수분 관리</h4>
+                      <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <p><strong>기본 원칙</strong>: 평소 수분(35-45ml/kg) 유지 → 24시간 전부터 &apos;가벼운&apos; 제한(체중의 1-2%)</p>
+                        <p><strong>나트륨</strong>: 완전 차단 X, 평소 섭취량(2-3g) 유지해 세포 팽창 보존</p>
+                        <p className="text-red-600 dark:text-red-400 font-medium">⚠️ 피지크 선수 62%가 대회 당일 중등도-중증 탈수 상태 (PMC 연구)</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">🚀 혈류-펌프 강화</h4>
+                      <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <p><strong>L-시트룰린</strong>: 6-8g, 촬영 60분 전 (NO 합성 증가)</p>
+                        <p><strong>비트루트 주스</strong>: 400ml 전날 밤 + 당일 아침</p>
+                        <p className="text-green-600 dark:text-green-400 font-medium">📈 시트룰린 8g 투여 후 혈류 지표 개선 보고 (개인차 존재)</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-6 rounded-lg border border-amber-200 dark:border-amber-800">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">✨ 피부 질감 &amp; 톤</h4>
+                      <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <p><strong>1주 전</strong>: 각질 제거, 저자극 보습 루틴으로 피부 수분 유지</p>
+                        <p><strong>24시간 전</strong>: 무향 미스트형 셀프 탄 (적당한 어두움)</p>
+                        <p className="text-amber-600 dark:text-amber-400 font-medium">🎨 인공 태닝이 광반사도를 낮춰 근육 윤곽 대비 높임 (ResearchGate)</p>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* 피킹 단계 (1-2주 전) */}
+                {/* 촬영 당일 */}
                 <div>
                   <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                    ⚡ 피킹 단계 (1-2주 전)
+                    📸 촬영 당일 (2시간 전 → 촬영 종료)
                   </h3>
                   
                   <div className="space-y-4">
-                    <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg border border-amber-200 dark:border-amber-800">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">탄수화물 밴딩/로딩</h4>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        • <strong>원리</strong>: 글리코겐 저장 시 3-4배 수분을 끌어들여 근육 글리코겐을 정상의 2-3배까지 증가<br/>
-                        • <strong>D-6~7일</strong>: 고강도 운동 + 탄수화물 절제 (밴딩)<br/>
-                        • <strong>D-2~3일</strong>: 중/저강도 운동 + 고탄수화물 식사 (로딩)
-                      </p>
+                    <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-lg border border-purple-200 dark:border-purple-800">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">💪 직전 펌프-업</h4>
+                      <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <p><strong>타이밍</strong>: 30분 전, 밴드·덤벨로 보디파트 당 3세트 (12-15회, 60초 휴식)</p>
+                        <p><strong>효과</strong>: 글리코겐 충전 상태 + 국소 혈류 증가 = 최대 &apos;팽창&apos; 효과</p>
+                        <p className="text-purple-600 dark:text-purple-400 font-medium">🔬 탄수 로딩 + 국소 펌핑 조합이 시각적 근육 부피 최대화 (PMC 리뷰)</p>
+                      </div>
                     </div>
 
-                    <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">수분 및 나트륨 조절</h4>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        • <strong>D-4까지</strong>: 하루 6리터 수분, 4000mg 염분 섭취<br/>
-                        • <strong>D-2일 전</strong>: 염분 증가 → 일시적 수분 보유 후 소금 완전 제거<br/>
-                        • <strong>점진적 감량</strong>: 예) 1L → 2L(3일) → 500ml → 300ml → 단수<br/>
-                        • <strong>원리</strong>: 피하수분이 근육으로 이동하여 펌핑 효과와 선명도 증가
-                      </p>
+                    <div className="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">💧 실시간 수분·탄수 섭취</h4>
+                      <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <p><strong>촬영 90분 동안</strong>: 15분마다 100ml 물 + 전해질</p>
+                        <p><strong>당분 보충</strong>: 간격마다 꿀 한 스푼 또는 말린 과일 10g</p>
+                        <p className="text-cyan-600 dark:text-cyan-400 font-medium">⚡ 탈수 2%만 돼도 혈장량·근육 펌프 감소, 미량 보충이 안전선</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 p-6 rounded-lg border border-red-200 dark:border-red-800">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">🎯 포징 호흡법</h4>
+                      <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <p><strong>기법</strong>: 포즈 직전 숨 내쉬며 복근 수축 → 2-3초 홀드, 시선 정면</p>
+                        <p><strong>안전</strong>: 복압이 풀리면 즉시 재호흡 후 반복</p>
+                        <p className="text-red-600 dark:text-red-400 font-medium">🫁 복압-호흡 주기 5초 이내면 혈압 급등 없이 복근 긴장 유지</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 p-6 rounded-lg border border-yellow-200 dark:border-yellow-800">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">💡 조명·도포 최적화</h4>
+                      <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <p><strong>조명</strong>: 45° 측광 소프트박스 권장</p>
+                        <p><strong>오일</strong>: 하이라이트 오일 &apos;소량&apos; (광택이 아닌 &quot;새틴&quot; 질감)</p>
+                        <p className="text-yellow-600 dark:text-yellow-400 font-medium">⚠️ 과유광 오일은 하이라이트 번짐 주의, 중간-저반사 피부가 최적</p>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* 촬영 당일 과학적 준비 */}
+                {/* 촬영 후 회복 */}
                 <div>
                   <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                    📸 촬영 당일 과학적 준비
-                  </h3>
-                  
-                  <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
-                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                      • <strong>당분 섭취</strong>: 사탕, 양갱으로 당 떨어짐 방지<br/>
-                      • <strong>복근 펌핑</strong>: 호흡을 끝까지 내뱉고 쥐어짜듯 숨 참기<br/>
-                      • <strong>각 부위 펌핑</strong>: 가벼운 고반복 운동으로 혈류량 증가<br/>
-                      • <strong>태닝 효과</strong>: 기본 태닝 + 탠 스프레이 + 베이비오일로 근육 선명도 극대화
-                    </p>
-                  </div>
-                </div>
-
-                {/* 촬영 후 안전한 회복 */}
-                <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                    🔄 촬영 후 안전한 회복
+                    🔄 촬영 후 회복 (0시간 → 48시간)
                   </h3>
                   
                   <div className="space-y-4">
+                    <div className="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-6 rounded-lg border border-emerald-200 dark:border-emerald-800">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">⚡ 급속 회복 프로토콜</h4>
+                      <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <p><strong>30분 내</strong>: ORS(전해질 음료) 500ml + 물 500ml</p>
+                        <p><strong>1시간 내</strong>: 탄수화물 1g/kg + 단백질 0.3g/kg (예: 바나나 2개 + 단백질 쉐이크)</p>
+                        <p className="text-emerald-600 dark:text-emerald-400 font-medium">🚀 ORS 섭취가 단순 물보다 재수화 속도 30% 향상</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-6 rounded-lg border border-indigo-200 dark:border-indigo-800">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">🏃‍♂️ 근육·에너지 회복</h4>
+                      <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <p><strong>24시간 동안</strong>: 매 식사마다 탄수화물 1g/kg 유지, 총 단백질 2g/kg</p>
+                        <p><strong>활동</strong>: 저강도 스트레칭·폼롤링 20분</p>
+                        <p className="text-indigo-600 dark:text-indigo-400 font-medium">📚 4시간 이내 충분 탄수·단백질 투입 시 근·간 글리코겐 회복 가속</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-lg border border-orange-200 dark:border-orange-800">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">🛡️ 피부·면역 케어</h4>
+                      <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <p><strong>즉시</strong>: 태닝 잔여물 샤워로 제거 → 항산화 로션 도포</p>
+                        <p><strong>보충제</strong>: 비타민 C 1g, E 200IU로 자외선 프리래디컬 감소</p>
+                        <p className="text-orange-600 dark:text-orange-400 font-medium">🔬 자외선 노출 후 항산화 보충이 염증 마커 감소 (2024 메타분석)</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 두 가지 접근법 비교 */}
+                <div className="bg-gradient-to-r from-gray-50 to-slate-50 dark:from-gray-800 dark:to-slate-800 p-6 rounded-lg border-2 border-gray-300 dark:border-gray-600">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+                    ⚖️ 두 가지 접근법 비교
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
+                      <h4 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-2">🛡️ 안전 지향 &quot;촬영용&quot;</h4>
+                      <div className="space-y-1 text-sm text-gray-600 dark:text-gray-300">
+                        <p>• 탈수 최소화 (1-2%)</p>
+                        <p>• 탄수화물 중간치 로딩</p>
+                        <p>• 나트륨 유지</p>
+                        <p>• 촬영 직후 정상 식단 복귀</p>
+                        <p className="text-green-600 dark:text-green-400 font-medium">→ 컨디션 보존, 빠른 회복</p>
+                      </div>
+                    </div>
+                    
                     <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border border-red-200 dark:border-red-800">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">주의해야 할 부작용</h4>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        • <strong>신체적 부작용</strong>: 거식증, 폭식증, 요요현상, 생리중단, 탈모, 빈혈<br/>
-                        • <strong>심리적 부작용</strong>: 음식 강박, 우울감, 식이장애<br/>
-                        • <strong>심각한 합병증</strong>: 외상성 횡문근융해증(근육 손상으로 신장 기능 저하)
-                      </p>
-                    </div>
-
-                    <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg border border-purple-200 dark:border-purple-800">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">안전한 회복 방법</h4>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        • <strong>점진적 회복</strong>: 6개월 이상에 걸쳐 정상 식단으로 복귀<br/>
-                        • <strong>충분한 수분</strong>: 하루 3L 정도의 수분 섭취<br/>
-                        • <strong>균형 잡힌 영양</strong>: 호르몬 밸런스 회복을 위한 영양소 섭취<br/>
-                        • <strong>정신 건강</strong>: 바디프로필은 '과정'이지 '목적'이 아님을 인식
-                      </p>
+                      <h4 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-2">⚡ 극대화 &quot;대회식&quot;</h4>
+                      <div className="space-y-1 text-sm text-gray-600 dark:text-gray-300">
+                        <p>• 체중 3-4% 수분 제거</p>
+                        <p>• 10g/kg 이상 탄수화물 로딩</p>
+                        <p>• 나트륨 하루 차단</p>
+                        <p>• 물·나트륨 복귀 지연</p>
+                        <p className="text-red-600 dark:text-red-400 font-medium">→ 외형 극대화 but 위험성 ↑</p>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* 의학적 경고 */}
+                {/* Quick Checklist */}
+                <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 rounded-lg border-2 border-blue-300 dark:border-blue-700">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+                    📋 Quick Checklist
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-4 text-sm">
+                    <div className="space-y-2">
+                      <p><strong>T-7일</strong>: 각질제거·보습 시작, 탄수 제한·훈련 강도 유지</p>
+                      <p><strong>T-3일</strong>: 탄수 로딩 전환, 수분 섭취 그대로</p>
+                      <p><strong>T-1일</strong>: 수분 2L 전후로 조절, 무향 셀프 탄 완료</p>
+                    </div>
+                    <div className="space-y-2">
+                      <p><strong>D-Day</strong>: 시트룰린 6g, 45분 밴드 펌핑, 15분마다 미량 수분·당</p>
+                      <p><strong>+2시간</strong>: ORS·탄수·단백질 보충, 스트레칭</p>
+                      <p><strong>+24시간</strong>: 평소 식단·훈련 복귀, 수분·체중 정상화 확인</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 기존 과학적 가이드 유지 */}
                 <div className="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg border-2 border-yellow-300 dark:border-yellow-700">
                   <h3 className="text-xl font-bold text-red-600 dark:text-red-400 mb-3">
                     ⚠️ 의학적 경고사항
@@ -306,7 +382,7 @@ export default function AboutPage() {
                     • 저나트륨혈증 → 근육수축, 발작, 심한 경우 사망 위험<br/>
                     • 체지방 과도 감소 → 호르몬 불균형 → 생리불순, 골다공증, 불임, 면역력 저하<br/>
                     <br/>
-                    <strong className="text-red-600 dark:text-red-400">건강을 최우선으로 하여 전문가와 상담 후 진행하시기 바랍니다.</strong>
+                    <strong className="text-red-600 dark:text-red-400">안전 지향 접근법을 권장하며, 건강을 최우선으로 전문가 상담 후 진행하시기 바랍니다.</strong>
                   </p>
                 </div>
               </div>
