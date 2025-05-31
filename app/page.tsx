@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '../components/Nav'
@@ -83,32 +83,59 @@ export default function HomePage() {
     }
   ]
 
-  // 슬라이드 상태 관리
+  // 상태 관리
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlay, setIsAutoPlay] = useState(true)
+  const [touchStartX, setTouchStartX] = useState(0)
+  const [touchEndX, setTouchEndX] = useState(0)
+
+  // 슬라이드 이동 함수들
+  const goToNextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % heroImages.length)
+  }, [heroImages.length])
+
+  const goToPrevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length)
+  }, [heroImages.length])
+
+  const goToSlide = useCallback((index) => {
+    setCurrentSlide(index)
+  }, [])
 
   // 자동 슬라이드 기능
   useEffect(() => {
     if (!isAutoPlay) return
 
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroImages.length)
-    }, 5000) // 5초마다 변경
-
+    const interval = setInterval(goToNextSlide, 4000) // 4초마다 변경
     return () => clearInterval(interval)
-  }, [isAutoPlay, heroImages.length])
+  }, [isAutoPlay, goToNextSlide])
 
-  // 슬라이드 이동 함수들
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index)
+  // 터치 이벤트 핸들러들
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.targetTouches[0].clientX)
   }
 
-  const goToPrevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length)
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.targetTouches[0].clientX)
   }
 
-  const goToNextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroImages.length)
+  const handleTouchEnd = () => {
+    if (!touchStartX || !touchEndX) return
+    
+    const distance = touchStartX - touchEndX
+    const minSwipeDistance = 50
+
+    if (distance > minSwipeDistance) {
+      // 왼쪽으로 스와이프 = 다음 슬라이드
+      goToNextSlide()
+    } else if (distance < -minSwipeDistance) {
+      // 오른쪽으로 스와이프 = 이전 슬라이드
+      goToPrevSlide()
+    }
+
+    // 초기화
+    setTouchStartX(0)
+    setTouchEndX(0)
   }
 
   return (
@@ -119,16 +146,19 @@ export default function HomePage() {
       {/* 히어로 슬라이드 섹션 */}
       <main className="pt-16">
         <section 
-          className="relative h-[70vh] sm:h-[80vh] md:h-screen flex items-center justify-center overflow-hidden"
+          className="relative h-[70vh] sm:h-[80vh] md:h-screen flex items-center justify-center overflow-hidden select-none"
           onMouseEnter={() => setIsAutoPlay(false)}
           onMouseLeave={() => setIsAutoPlay(true)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           {/* 슬라이드 이미지들 */}
           {heroImages.map((image, index) => (
             <div
-              key={image.id}
+              key={`slide-${image.id}`}
               className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                index === currentSlide ? 'opacity-100' : 'opacity-0'
+                index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
               }`}
             >
               <Image
@@ -137,17 +167,19 @@ export default function HomePage() {
                 fill
                 className="object-cover object-center"
                 priority={index === 0}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+                sizes="100vw"
+                quality={85}
               />
               {/* 어두운 오버레이 */}
-              <div className="absolute inset-0 bg-black/40"></div>
+              <div className="absolute inset-0 bg-black/40 z-10"></div>
             </div>
           ))}
 
           {/* 좌/우 화살표 버튼 */}
           <button
             onClick={goToPrevSlide}
-            className="absolute left-2 sm:left-4 md:left-8 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-1.5 sm:p-2 md:p-3 transition-all duration-300"
+            type="button"
+            className="absolute left-2 sm:left-4 md:left-8 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-1.5 sm:p-2 md:p-3 transition-all duration-300 border border-white/20"
             aria-label="이전 슬라이드"
           >
             <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
@@ -155,20 +187,21 @@ export default function HomePage() {
           
           <button
             onClick={goToNextSlide}
-            className="absolute right-2 sm:right-4 md:right-8 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-1.5 sm:p-2 md:p-3 transition-all duration-300"
+            type="button"
+            className="absolute right-2 sm:right-4 md:right-8 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-1.5 sm:p-2 md:p-3 transition-all duration-300 border border-white/20"
             aria-label="다음 슬라이드"
           >
             <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
           </button>
 
           {/* 중앙 텍스트 콘텐츠 */}
-          <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <div className="relative z-20 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
             <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-6 transition-all duration-700 leading-tight">
-              {heroImages[currentSlide].title}
+              {heroImages[currentSlide]?.title}
             </h1>
             <div className="h-px bg-white/30 w-12 sm:w-16 md:w-24 mx-auto mb-4 md:mb-8"></div>
             <div className="space-y-1 sm:space-y-2 text-sm sm:text-base md:text-xl lg:text-2xl transition-all duration-700">
-              <p>{heroImages[currentSlide].subtitle}</p>
+              <p>{heroImages[currentSlide]?.subtitle}</p>
               <p className="opacity-90">프리미엄 바디프로필 전문 스튜디오</p>
               <p className="opacity-80 hidden sm:block">최고의 퀄리티로 완성하는 특별한 경험</p>
             </div>
@@ -178,11 +211,12 @@ export default function HomePage() {
           </div>
 
           {/* 슬라이드 인디케이터 */}
-          <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-1.5 sm:space-x-2">
+          <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex space-x-1.5 sm:space-x-2">
             {heroImages.map((_, index) => (
               <button
-                key={index}
+                key={`indicator-${index}`}
                 onClick={() => goToSlide(index)}
+                type="button"
                 className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide
                     ? 'bg-white scale-125'
@@ -210,6 +244,7 @@ export default function HomePage() {
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-110"
                     loading="lazy"
+                    sizes="(max-width: 768px) 50vw, 25vw"
                   />
                   {/* 호버 오버레이 */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
