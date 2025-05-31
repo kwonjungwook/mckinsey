@@ -253,9 +253,7 @@ export default function BookingPage() {
                               width={200}
                               height={128}
                               className="w-full h-32 object-cover rounded-lg"
-                              onError={(e) => {
-                                e.target.src = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23f3f4f6"/><text x="100" y="100" text-anchor="middle" fill="%236b7280" font-size="14">장소 ${imgIndex + 1}</text></svg>`
-                              }}
+                              unoptimized
                             />
                             <div className="absolute top-2 left-2 bg-blue-500 text-white px-2 py-1 rounded text-xs">
                               장소
@@ -271,9 +269,7 @@ export default function BookingPage() {
                               width={200}
                               height={128}
                               className="w-full h-32 object-cover rounded-lg"
-                              onError={(e) => {
-                                e.target.src = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23f3f4f6"/><text x="100" y="100" text-anchor="middle" fill="%236b7280" font-size="14">작품 ${imgIndex + 1}</text></svg>`
-                              }}
+                              unoptimized
                             />
                             <div className="absolute top-2 left-2 bg-purple-500 text-white px-2 py-1 rounded text-xs">
                               작품
