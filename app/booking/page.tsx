@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Nav from '../../components/Nav'
 
 export default function BookingPage() {
@@ -158,8 +159,8 @@ export default function BookingPage() {
                   </button>
                   
                   <div className="text-center text-sm text-gray-500 dark:text-gray-400">
-                    "옵션번호 + 희망날짜/시간"만 보내주세요!<br/>
-                    예: "옵션1 + 6월 8일 오후 2시"
+                    &quot;옵션번호 + 희망날짜/시간&quot;만 보내주세요!<br/>
+                    예: &quot;옵션1 + 6월 8일 오후 2시&quot;
                   </div>
                 </div>
                 
@@ -246,9 +247,11 @@ export default function BookingPage() {
                         {/* 장소 이미지들 */}
                         {option.images.locationImages.map((image, imgIndex) => (
                           <div key={`location-${imgIndex}`} className="relative">
-                            <img 
+                            <Image 
                               src={image} 
                               alt={`${option.subtitle} 장소 ${imgIndex + 1}`}
+                              width={200}
+                              height={128}
                               className="w-full h-32 object-cover rounded-lg"
                               onError={(e) => {
                                 e.target.src = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23f3f4f6"/><text x="100" y="100" text-anchor="middle" fill="%236b7280" font-size="14">장소 ${imgIndex + 1}</text></svg>`
@@ -262,9 +265,11 @@ export default function BookingPage() {
                         {/* 촬영 이미지들 */}
                         {option.images.shootingImages.map((image, imgIndex) => (
                           <div key={`shooting-${imgIndex}`} className="relative">
-                            <img 
+                            <Image 
                               src={image} 
                               alt={`${option.subtitle} 작품 ${imgIndex + 1}`}
+                              width={200}
+                              height={128}
                               className="w-full h-32 object-cover rounded-lg"
                               onError={(e) => {
                                 e.target.src = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23f3f4f6"/><text x="100" y="100" text-anchor="middle" fill="%236b7280" font-size="14">작품 ${imgIndex + 1}</text></svg>`
