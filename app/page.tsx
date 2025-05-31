@@ -205,7 +205,7 @@ export default function HomePage() {
       <main className="pt-16">
         <section 
           ref={sliderRef}
-          className="relative h-[70vh] sm:h-[80vh] md:h-screen flex items-center justify-center overflow-hidden select-none"
+          className="relative h-[95vh] sm:h-[90vh] md:h-screen flex items-center justify-center overflow-hidden select-none"
           onMouseEnter={() => setIsAutoPlay(false)}
           onMouseLeave={() => setIsAutoPlay(true)}
           onTouchStart={onTouchStart}
