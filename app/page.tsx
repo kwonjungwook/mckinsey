@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '../components/Nav'
@@ -86,8 +86,15 @@ export default function HomePage() {
   // 상태 관리
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlay, setIsAutoPlay] = useState(true)
-  const [touchStartX, setTouchStartX] = useState(0)
-  const [touchEndX, setTouchEndX] = useState(0)
+  const [touchStart, setTouchStart] = useState(null)
+  const [touchEnd, setTouchEnd] = useState(null)
+  const [isMounted, setIsMounted] = useState(false)
+  const sliderRef = useRef(null)
+
+  // 컴포넌트 마운트 확인
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   // 슬라이드 이동 함수들
   const goToNextSlide = useCallback(() => {
@@ -104,38 +111,52 @@ export default function HomePage() {
 
   // 자동 슬라이드 기능
   useEffect(() => {
-    if (!isAutoPlay) return
+    if (!isMounted || !isAutoPlay) return
 
-    const interval = setInterval(goToNextSlide, 4000) // 4초마다 변경
-    return () => clearInterval(interval)
-  }, [isAutoPlay, goToNextSlide])
-
-  // 터치 이벤트 핸들러들
-  const handleTouchStart = (e) => {
-    setTouchStartX(e.targetTouches[0].clientX)
-  }
-
-  const handleTouchMove = (e) => {
-    setTouchEndX(e.targetTouches[0].clientX)
-  }
-
-  const handleTouchEnd = () => {
-    if (!touchStartX || !touchEndX) return
-    
-    const distance = touchStartX - touchEndX
-    const minSwipeDistance = 50
-
-    if (distance > minSwipeDistance) {
-      // 왼쪽으로 스와이프 = 다음 슬라이드
+    const interval = setInterval(() => {
       goToNextSlide()
-    } else if (distance < -minSwipeDistance) {
-      // 오른쪽으로 스와이프 = 이전 슬라이드
+    }, 4000) // 4초마다 변경
+    
+    return () => clearInterval(interval)
+  }, [isAutoPlay, goToNextSlide, isMounted])
+
+  // 최소 스와이프 거리
+  const minSwipeDistance = 50
+
+  // 터치 시작
+  const onTouchStart = (e) => {
+    setTouchEnd(null) // 이전 터치 종료 위치 초기화
+    setTouchStart(e.touches[0].clientX)
+    setIsAutoPlay(false) // 터치 중 자동 전환 중지
+  }
+
+  // 터치 이동
+  const onTouchMove = (e) => {
+    if (!touchStart) return
+    setTouchEnd(e.touches[0].clientX)
+  }
+
+  // 터치 종료
+  const onTouchEnd = (e) => {
+    if (!touchStart || !touchEnd) {
+      setIsAutoPlay(true)
+      return
+    }
+    
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+
+    if (isLeftSwipe) {
+      goToNextSlide()
+    } else if (isRightSwipe) {
       goToPrevSlide()
     }
 
-    // 초기화
-    setTouchStartX(0)
-    setTouchEndX(0)
+    // 터치 상태 초기화 및 자동 전환 재개
+    setTouchStart(null)
+    setTouchEnd(null)
+    setTimeout(() => setIsAutoPlay(true), 500) // 0.5초 후 자동 전환 재개
   }
 
   return (
@@ -146,12 +167,18 @@ export default function HomePage() {
       {/* 히어로 슬라이드 섹션 */}
       <main className="pt-16">
         <section 
+          ref={sliderRef}
           className="relative h-[70vh] sm:h-[80vh] md:h-screen flex items-center justify-center overflow-hidden select-none"
           onMouseEnter={() => setIsAutoPlay(false)}
           onMouseLeave={() => setIsAutoPlay(true)}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          style={{ 
+            touchAction: 'pan-y pinch-zoom',
+            WebkitUserSelect: 'none',
+            userSelect: 'none'
+          }}
         >
           {/* 슬라이드 이미지들 */}
           {heroImages.map((image, index) => (
