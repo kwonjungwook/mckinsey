@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Nav from '../components/Nav'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 // 화면 크기 감지 훅
 function useIsMobile() {
@@ -39,7 +39,7 @@ export default function HomePage() {
     {
       id: 1,
       src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
-      mobileSrc: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&h=1920&q=85",
+      mobileSrc: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748672672/2_wvbhln.png",
       alt: "바디프로필 촬영 - 강력한 포즈",
       title: "Body Profile by Mckinsey Studio",
       subtitle: "당신의 아름다운 순간을 영원히 담아내는"
