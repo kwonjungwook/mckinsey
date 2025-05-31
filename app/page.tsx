@@ -197,7 +197,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="bg-white">
       {/* 네비게이션 */}
       <Nav />
       
@@ -205,7 +205,7 @@ export default function HomePage() {
       <main>
         <section 
           ref={sliderRef}
-          className="relative h-[95vh] sm:h-[90vh] md:h-screen flex items-center justify-center overflow-hidden select-none"
+          className="relative h-screen flex items-center justify-center overflow-hidden select-none"
           onMouseEnter={() => setIsAutoPlay(false)}
           onMouseLeave={() => setIsAutoPlay(true)}
           onTouchStart={onTouchStart}
@@ -293,7 +293,7 @@ export default function HomePage() {
         </section>
 
         {/* 포트폴리오 갤러리 섹션 */}
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <section className="pt-8 pb-12 md:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {portfolioImages.map((image) => (
               <Link 
