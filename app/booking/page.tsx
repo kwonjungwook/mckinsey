@@ -29,17 +29,42 @@ export default function BookingPage() {
     }))
   }
 
-  // 날짜/시간 옵션들
-  const datetimeOptions = [
-    { value: "2월 1일 토요일 오전 9시", label: "2월 1일 토요일 오전 9시" },
-    { value: "2월 2일 일요일 오후 2시", label: "2월 2일 일요일 오후 2시" },
-    { value: "2월 8일 토요일 오후 5시", label: "2월 8일 토요일 오후 5시" },
-    { value: "2월 9일 일요일 오전 9시", label: "2월 9일 일요일 오전 9시" },
-    { value: "2월 15일 토요일 오후 2시", label: "2월 15일 토요일 오후 2시" },
-    { value: "2월 16일 일요일 오후 5시", label: "2월 16일 일요일 오후 5시" },
-    { value: "2월 22일 토요일 오전 9시", label: "2월 22일 토요일 오전 9시" },
-    { value: "2월 23일 일요일 오후 2시", label: "2월 23일 일요일 오후 2시" }
-  ]
+  // 날짜/시간 옵션들 (동적 생성)
+  const generateDatetimeOptions = () => {
+    const options = []
+    const today = new Date()
+    
+    // 다음 8주간의 주말 생성
+    for (let week = 0; week < 8; week++) {
+      // 토요일 찾기
+      const saturday = new Date(today)
+      saturday.setDate(today.getDate() + (6 - today.getDay()) + (week * 7))
+      
+      // 일요일
+      const sunday = new Date(saturday)
+      sunday.setDate(saturday.getDate() + 1)
+      
+      // 토요일 옵션들
+      const saturdayStr = `${saturday.getMonth() + 1}월 ${saturday.getDate()}일 토요일`
+      options.push(
+        { value: `${saturdayStr} 오전 9시`, label: `${saturdayStr} 오전 9시` },
+        { value: `${saturdayStr} 오후 2시`, label: `${saturdayStr} 오후 2시` },
+        { value: `${saturdayStr} 오후 5시`, label: `${saturdayStr} 오후 5시` }
+      )
+      
+      // 일요일 옵션들
+      const sundayStr = `${sunday.getMonth() + 1}월 ${sunday.getDate()}일 일요일`
+      options.push(
+        { value: `${sundayStr} 오전 9시`, label: `${sundayStr} 오전 9시` },
+        { value: `${sundayStr} 오후 2시`, label: `${sundayStr} 오후 2시` },
+        { value: `${sundayStr} 오후 5시`, label: `${sundayStr} 오후 5시` }
+      )
+    }
+    
+    return options
+  }
+  
+  const datetimeOptions = generateDatetimeOptions()
 
   // 각 날짜/시간 선택에서 이미 선택된 것들을 제외한 옵션들 반환
   const getAvailableDatetimeOptions = (currentField: string) => {
@@ -60,7 +85,6 @@ export default function BookingPage() {
       
       // 이메일 템플릿 파라미터
       const templateParams = {
-        to_email: 'kazuya7x@naver.com',
         from_name: formData.name,
         from_phone: formData.phone,
         from_email: formData.email,
