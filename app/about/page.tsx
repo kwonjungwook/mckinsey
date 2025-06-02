@@ -36,8 +36,7 @@ export default function AboutPage() {
                     몸 관리 및 컨디션
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    촬영 2-3일 전부터 충분한 수분 섭취와 가벼운 운동을 권장합니다. 
-                    충분한 수면을 취하고, 촬영 당일에는 가벼운 식사 후 오시면 됩니다. 
+                    충분한 수면을 취하고, 촬영 당일에는 가벼운 식사 후 오시면 됩니다.(전문가 가이드 참조) 
                     과식은 피하고, 야외 촬영 특성상 체력 소모가 있으니 컨디션 관리에 신경 써주세요.
                   </p>
                 </div>
@@ -48,8 +47,7 @@ export default function AboutPage() {
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                     바다를 배경으로 한 야외 촬영에 적합한 의상을 준비해 주세요. 비키니, 원피스, 운동복 등 
-                    2-3벌 준비해 주시면 됩니다. 바람이 불 수 있으니 날림을 방지할 수 있는 핏이 좋은 의상을 권장합니다. 
-                    색상은 화이트, 베이지, 블랙, 파스텔 톤이 바다와 잘 어울립니다.
+                    2-3벌 준비해 주시면 됩니다. 색상은 화이트, 베이지, 블랙, 파스텔 톤이 바다와 잘 어울립니다.
                   </p>
                 </div>
 
@@ -60,7 +58,6 @@ export default function AboutPage() {
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                     야외 촬영 특성상 자연스러운 메이크업을 권장합니다. 바람과 습도에 대비해 
                     워터프루프 제품 사용을 추천하며, 헤어는 바람에 자연스럽게 흘러도 예쁜 스타일링을 해주세요. 
-                    과도한 스타일링 제품은 피해주시기 바랍니다.
                   </p>
                 </div>
 
@@ -190,7 +187,7 @@ export default function AboutPage() {
           {/* 4. 전문가 가이드 링크 */}
           <section className="mb-16">
             <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-8 shadow-lg text-center text-white">
-              <h2 className="text-3xl font-bold mb-4">
+              <h2 className="text-2xl font-bold mb-4">
                 💪 바디프로필 전문가 가이드
               </h2>
               <p className="text-lg mb-6 opacity-90">
