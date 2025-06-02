@@ -29,49 +29,6 @@ export default function BookingPage() {
     }))
   }
 
-  // 날짜/시간 옵션들 (동적 생성)
-  const generateDatetimeOptions = () => {
-    const options = []
-    const today = new Date()
-    
-    // 다음 8주간의 주말 생성
-    for (let week = 0; week < 8; week++) {
-      // 토요일 찾기
-      const saturday = new Date(today)
-      saturday.setDate(today.getDate() + (6 - today.getDay()) + (week * 7))
-      
-      // 일요일
-      const sunday = new Date(saturday)
-      sunday.setDate(saturday.getDate() + 1)
-      
-      // 토요일 옵션들
-      const saturdayStr = `${saturday.getMonth() + 1}월 ${saturday.getDate()}일 토요일`
-      options.push(
-        { value: `${saturdayStr} 오전 9시`, label: `${saturdayStr} 오전 9시` },
-        { value: `${saturdayStr} 오후 2시`, label: `${saturdayStr} 오후 2시` },
-        { value: `${saturdayStr} 오후 5시`, label: `${saturdayStr} 오후 5시` }
-      )
-      
-      // 일요일 옵션들
-      const sundayStr = `${sunday.getMonth() + 1}월 ${sunday.getDate()}일 일요일`
-      options.push(
-        { value: `${sundayStr} 오전 9시`, label: `${sundayStr} 오전 9시` },
-        { value: `${sundayStr} 오후 2시`, label: `${sundayStr} 오후 2시` },
-        { value: `${sundayStr} 오후 5시`, label: `${sundayStr} 오후 5시` }
-      )
-    }
-    
-    return options
-  }
-  
-  const datetimeOptions = generateDatetimeOptions()
-
-  // 각 날짜/시간 선택에서 이미 선택된 것들을 제외한 옵션들 반환
-  const getAvailableDatetimeOptions = (currentField: string) => {
-    const selectedDatetimes = [formData.datetime1, formData.datetime2, formData.datetime3].filter(datetime => datetime && datetime !== formData[currentField as keyof typeof formData])
-    return datetimeOptions.filter(option => !selectedDatetimes.includes(option.value))
-  }
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
@@ -534,69 +491,48 @@ export default function BookingPage() {
                     <label htmlFor="datetime1" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                       🥇 희망 날짜/시간 1순위 *
                     </label>
-                    <select
+                    <input
+                      type="text"
                       id="datetime1"
                       name="datetime1"
                       value={formData.datetime1}
                       onChange={handleInputChange}
                       required
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900"
-                    >
-                      <option value="">1순위 날짜/시간을 선택해주세요</option>
-                      {getAvailableDatetimeOptions('datetime1').map((option) => (
-                        <option key={option.value} value={option.value}>
-                          {option.label}
-                        </option>
-                      ))}
-                    </select>
+                      placeholder="예시: 2024-05-15 오전 10시"
+                    />
                   </div>
 
                   <div>
                     <label htmlFor="datetime2" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                       🥈 희망 날짜/시간 2순위 *
                     </label>
-                    <select
+                    <input
+                      type="text"
                       id="datetime2"
                       name="datetime2"
                       value={formData.datetime2}
                       onChange={handleInputChange}
                       required
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900"
-                    >
-                      <option value="">2순위 날짜/시간을 선택해주세요</option>
-                      {getAvailableDatetimeOptions('datetime2').map((option) => (
-                        <option key={option.value} value={option.value}>
-                          {option.label}
-                        </option>
-                      ))}
-                    </select>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                      1순위와 다른 날짜/시간을 선택해주세요
-                    </p>
+                      placeholder="예시: 2024-05-16 오후 2시"
+                    />
                   </div>
 
                   <div>
                     <label htmlFor="datetime3" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                       🥉 희망 날짜/시간 3순위 *
                     </label>
-                    <select
+                    <input
+                      type="text"
                       id="datetime3"
                       name="datetime3"
                       value={formData.datetime3}
                       onChange={handleInputChange}
                       required
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900"
-                    >
-                      <option value="">3순위 날짜/시간을 선택해주세요</option>
-                      {getAvailableDatetimeOptions('datetime3').map((option) => (
-                        <option key={option.value} value={option.value}>
-                          {option.label}
-                        </option>
-                      ))}
-                    </select>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                      1, 2순위와 다른 날짜/시간을 선택해주세요
-                    </p>
+                      placeholder="예시: 2024-05-17 오후 5시"
+                    />
                   </div>
 
                   <div>
