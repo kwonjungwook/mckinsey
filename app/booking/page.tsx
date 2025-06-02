@@ -52,45 +52,30 @@ export default function BookingPage() {
     setIsSubmitting(true)
     setSubmitStatus('전송 중...')
     
-    // EmailJS 설정 (실제 사용 시 환경변수로 관리하세요)
-    // .env.local 파일에 다음 환경변수들을 추가하세요:
-    // NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-    // NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id  
-    // NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
-    // NEXT_PUBLIC_STUDIO_EMAIL=kazuya7x@naver.com
-    
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID'
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID'
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
-    const studioEmail = process.env.NEXT_PUBLIC_STUDIO_EMAIL || 'kazuya7x@naver.com'
-
-    // 이메일 템플릿 파라미터
-    const templateParams = {
-      to_email: studioEmail, // 받을 이메일 주소 (귀하의 이메일)
-      from_name: formData.name,
-      from_phone: formData.phone,
-      from_email: formData.email,
-      shooting_option: formData.option,
-      preferred_datetime1: formData.datetime1,
-      preferred_datetime2: formData.datetime2,
-      preferred_datetime3: formData.datetime3,
-      message: formData.message || '추가 문의사항 없음',
-      reply_to: formData.email
-    }
-
-    // 테스트용 콘솔 로그
-    console.log('🚀 EmailJS 전송 시도:', {
-      serviceId,
-      templateId,
-      publicKey: publicKey.substring(0, 10) + '...',
-      templateParams
-    })
-
     try {
+      // EmailJS 설정
+      const serviceId = 'mckgraphy'
+      const templateId = 'mckinsey'
+      const publicKey = 'm6HsUIkmNvg6rQTZO'
+      
+      // 이메일 템플릿 파라미터
+      const templateParams = {
+        to_email: 'kazuya7x@naver.com',
+        from_name: formData.name,
+        from_phone: formData.phone,
+        from_email: formData.email,
+        shooting_option: formData.option,
+        preferred_datetime1: formData.datetime1,
+        preferred_datetime2: formData.datetime2,
+        preferred_datetime3: formData.datetime3,
+        message: formData.message || '추가 문의사항 없음',
+        booking_time: new Date().toLocaleString('ko-KR')
+      }
+
       // EmailJS로 이메일 전송
       await emailjs.send(serviceId, templateId, templateParams, publicKey)
       
-      console.log('✅ EmailJS 전송 성공!')
+      console.log('✅ 예약 문의 전송 성공!')
       setSubmitStatus('✅ 예약 문의가 성공적으로 전송되었습니다! 24시간 내에 연락드리겠습니다.')
       
       // 폼 초기화
@@ -105,7 +90,7 @@ export default function BookingPage() {
         message: ''
       })
     } catch (error) {
-      console.error('❌ EmailJS 전송 실패:', error)
+      console.error('❌ 전송 실패:', error)
       setSubmitStatus('❌ 전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.')
     } finally {
       setIsSubmitting(false)
