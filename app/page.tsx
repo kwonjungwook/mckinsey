@@ -270,7 +270,7 @@ export default function HomePage() {
               <p className="opacity-80 hidden sm:block">최고의 퀄리티로 완성하는 특별한 경험</p>
             </div>
             <div className="mt-4 md:mt-8 text-xs sm:text-sm md:text-base opacity-90">
-              문의 | 010-1234-5678
+              문의 | 010-2957-3323
             </div>
           </div>
 

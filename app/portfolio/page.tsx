@@ -69,7 +69,7 @@ export default function PortfolioPage() {
     },
     {
       id: 10,
-      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748677592/18_guaba3.png",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748874224/L1220471-6_gzlcfm.jpg",
       alt: "바디프로필 촬영 10",
       width: 400,
       height: 520
@@ -84,6 +84,34 @@ export default function PortfolioPage() {
     {
       id: 12,
       src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748873703/26_isu5hq.png",
+      alt: "바디프로필 촬영 12",
+      width: 400,
+      height: 590
+    },
+    {
+      id: 13,
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748874247/L1420328e_bhux6v.jpg",
+      alt: "바디프로필 촬영 9",
+      width: 400,
+      height: 660
+    },
+    {
+      id: 14,
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748874317/L1090503%E3%84%B4_qwbxe8.jpg",
+      alt: "바디프로필 촬영 10",
+      width: 400,
+      height: 520
+    },
+    {
+      id: 15,
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748873703/29_y6i1py.png",
+      alt: "바디프로필 촬영 11",
+      width: 400,
+      height: 640
+    },
+    {
+      id: 16,
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748689009/L1210421s_r0wkwt.png",
       alt: "바디프로필 촬영 12",
       width: 400,
       height: 590
@@ -107,25 +135,7 @@ export default function PortfolioPage() {
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Mckinsey Studio에서 촬영한 바디프로필 작품들을 만나보세요
             </p>
-          </div>
-
-          {/* 필터 태그 (선택사항) */}
-          <div className="flex justify-center mb-8">
-            <div className="flex flex-wrap gap-3">
-              <button className="px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium">
-                전체
-              </button>
-              <button className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
-                남성
-              </button>
-              <button className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
-                여성
-              </button>
-              <button className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
-                커플
-              </button>
-            </div>
-          </div>
+          </div>         
 
           {/* Masonry Grid 포트폴리오 갤러리 */}
           <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
@@ -161,28 +171,7 @@ export default function PortfolioPage() {
 
           {/* 더보기 버튼 */}
           <div className="text-center mt-12">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
-              더 많은 작품 보기
-            </button>
-          </div>
-
-          {/* CTA 섹션 */}
-          <div className="mt-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center text-white">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              당신도 이런 사진을 찍어보세요
-            </h2>
-            <p className="text-lg mb-6 opacity-90">
-              전문 포토그래퍼와 함께하는 특별한 바디프로필 경험
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors">
-                촬영 상담받기
-              </button>
-              <button className="border-2 border-white text-white font-semibold py-3 px-6 rounded-lg hover:bg-white hover:text-blue-600 transition-colors">
-                예약하기
-              </button>
-            </div>
-          </div>
+          </div>     
         </div>
       </main>
     </div>
