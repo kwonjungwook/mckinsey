@@ -30,7 +30,6 @@ export default function ImageModal({
   const [isMobile, setIsMobile] = useState(false)
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
-  const [isDragging, setIsDragging] = useState(false)
   const imageRef = useRef<HTMLDivElement>(null)
 
   // 모바일 감지
@@ -79,24 +78,24 @@ export default function ImageModal({
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [isOpen, onNext, onPrev])
 
-  // 터치 핸들러 (모바일용) - 성능 개선
+  // 터치 핸들러 (메인페이지 시스템 적용)
   const minSwipeDistance = 50
 
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null)
+  // 터치 시작
+  const onTouchStart = (e: React.TouchEvent<HTMLElement>) => {
+    setTouchEnd(null) // 이전 터치 종료 위치 초기화
     setTouchStart(e.touches[0].clientX)
-    setIsDragging(false)
   }
 
-  const onTouchMove = (e: React.TouchEvent) => {
+  // 터치 이동
+  const onTouchMove = (e: React.TouchEvent<HTMLElement>) => {
     if (!touchStart) return
     setTouchEnd(e.touches[0].clientX)
-    setIsDragging(true)
   }
 
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd || !isDragging) {
-      setIsDragging(false)
+  // 터치 종료
+  const onTouchEnd = (e: React.TouchEvent<HTMLElement>) => {
+    if (!touchStart || !touchEnd) {
       return
     }
     
@@ -104,16 +103,15 @@ export default function ImageModal({
     const isLeftSwipe = distance > minSwipeDistance
     const isRightSwipe = distance < -minSwipeDistance
 
-    if (isLeftSwipe && currentIndex < images.length - 1) {
+    if (isLeftSwipe) {
       onNext()
-    } else if (isRightSwipe && currentIndex > 0) {
+    } else if (isRightSwipe) {
       onPrev()
     }
 
-    // 상태 초기화
+    // 터치 상태 초기화
     setTouchStart(null)
     setTouchEnd(null)
-    setIsDragging(false)
   }
 
   if (!isOpen || !images[currentIndex]) return null
@@ -130,11 +128,15 @@ export default function ImageModal({
       
       {/* 모달 콘텐츠 */}
       <div 
-        className="relative z-10 w-full h-full flex items-center justify-center"
+        className="relative z-10 w-full h-full flex items-center justify-center overflow-hidden select-none"
         onTouchStart={isMobile ? onTouchStart : undefined}
         onTouchMove={isMobile ? onTouchMove : undefined}
         onTouchEnd={isMobile ? onTouchEnd : undefined}
-        style={{ touchAction: 'pan-x' }}
+        style={{ 
+          touchAction: 'manipulation',
+          WebkitUserSelect: 'none',
+          userSelect: 'none'
+        }}
       >
         {/* 닫기 버튼 */}
         <button
@@ -207,7 +209,7 @@ export default function ImageModal({
             width={currentImage.width}
             height={currentImage.height}
             className={`
-              object-contain
+              object-contain transition-all duration-300 ease-in-out
               ${isMobile 
                 ? 'w-full h-full max-w-none' 
                 : 'w-auto h-auto max-w-[85vw] max-h-[85vh]'

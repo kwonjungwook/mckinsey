@@ -27,8 +27,6 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4">📞 Contact</h4>
             <div className="space-y-2 text-gray-300">
               <p>📧 Email: kazuya7x@naver.com</p>
-              <p>📱 Phone: 010-2957-3323</p>
-              <p>🕐 주말 촬영 전문</p>
             </div>
           </div>
 
@@ -37,13 +35,13 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4">🔗 Quick Links</h4>
             <div className="space-y-2">
               <Link href="/booking" className="block text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                🏖️ 바다 촬영 예약
+                🏖️ 촬영 예약
               </Link>
               <Link href="/portfolio" className="block text-gray-300 hover:text-blue-400 transition-colors duration-300">
                 📸 Portfolio 보기
               </Link>
               <Link href="/about" className="block text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                📋 촬영 준비사항
+                📋 준비사항
               </Link>
             </div>
           </div>

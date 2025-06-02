@@ -26,7 +26,7 @@ export default function AboutPage() {
               촬영 안내
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-balance leading-relaxed">
-              부산 바다를 배경으로 한 완벽한 바디프로필 촬영을 위한 준비사항과 진행 과정을 확인해보세요
+              완벽한 바디프로필 촬영을 위한 준비사항과 진행 과정을 확인해보세요
             </p>
           </div>
 
@@ -53,8 +53,11 @@ export default function AboutPage() {
                     의상 준비
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-balance">
-                    바다를 배경으로 한 야외 촬영에 적합한 의상을 준비해 주세요. 비키니, 원피스, 운동복 등 
-                    2-3벌 준비해 주시면 됩니다. 색상은 화이트, 베이지, 블랙, 파스텔 톤이 바다와 잘 어울립니다.
+                    야외 촬영에 적합한 의상을 준비해 주세요. 비키니, 원피스, 운동복 등 
+                    2-3벌 준비해 주시면 됩니다. 바다와 어울리는 색상은 화이트, 파스텔.
+                    갈대밭과 어울리는 색상은 브라운, 블랙.
+                    철조망과 잘 어울리는 색상은 회색, 힙한 색상. 스타벅스 초록색, 블루, 레드 등.
+
                   </p>
                 </div>
 
@@ -151,7 +154,7 @@ export default function AboutPage() {
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-balance">
                     파일넘버 전송일로부터 최대 1개월 이내에 보정 작업을 완료하여 전달해 드립니다. 
-                    자연스러운 보정을 원칙으로 하며, 바다를 배경으로 한 특별한 분위기를 살려 작업합니다.
+                    자연스러운 보정을 원칙으로 하며, 모델의 특별한 분위기를 살려 작업합니다.
                   </p>
                 </div>
 
@@ -171,7 +174,7 @@ export default function AboutPage() {
           {/* CTA 섹션 */}
           <div className="bg-gradient-to-r from-blue-500 to-teal-500 rounded-2xl p-8 text-center text-white">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              부산 바다에서 특별한 순간을 남겨보세요
+              맥킨지 스튜디오에서 특별한 순간을 남겨보세요
             </h2>
             <p className="text-lg mb-6 opacity-90">
               더 궁금한 점이 있으시면 언제든지 편하게 문의해 주세요. 친절하게 상담해 드립니다.

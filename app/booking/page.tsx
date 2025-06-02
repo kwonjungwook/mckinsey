@@ -29,14 +29,16 @@ export default function BookingPage() {
     }))
   }
 
-  // 날짜/시간 옵션들 (주말만 운영)
+  // 날짜/시간 옵션들
   const datetimeOptions = [
-    { value: "토요일 오전 9시", label: "토요일 오전 9시" },
-    { value: "토요일 오후 2시", label: "토요일 오후 2시" },
-    { value: "토요일 오후 5시", label: "토요일 오후 5시" },
-    { value: "일요일 오전 9시", label: "일요일 오전 9시" },
-    { value: "일요일 오후 2시", label: "일요일 오후 2시" },
-    { value: "일요일 오후 5시", label: "일요일 오후 5시" }
+    { value: "2월 1일 토요일 오전 9시", label: "2월 1일 토요일 오전 9시" },
+    { value: "2월 2일 일요일 오후 2시", label: "2월 2일 일요일 오후 2시" },
+    { value: "2월 8일 토요일 오후 5시", label: "2월 8일 토요일 오후 5시" },
+    { value: "2월 9일 일요일 오전 9시", label: "2월 9일 일요일 오전 9시" },
+    { value: "2월 15일 토요일 오후 2시", label: "2월 15일 토요일 오후 2시" },
+    { value: "2월 16일 일요일 오후 5시", label: "2월 16일 일요일 오후 5시" },
+    { value: "2월 22일 토요일 오전 9시", label: "2월 22일 토요일 오전 9시" },
+    { value: "2월 23일 일요일 오후 2시", label: "2월 23일 일요일 오후 2시" }
   ]
 
   // 각 날짜/시간 선택에서 이미 선택된 것들을 제외한 옵션들 반환
@@ -76,10 +78,19 @@ export default function BookingPage() {
       reply_to: formData.email
     }
 
+    // 테스트용 콘솔 로그
+    console.log('🚀 EmailJS 전송 시도:', {
+      serviceId,
+      templateId,
+      publicKey: publicKey.substring(0, 10) + '...',
+      templateParams
+    })
+
     try {
       // EmailJS로 이메일 전송
       await emailjs.send(serviceId, templateId, templateParams, publicKey)
       
+      console.log('✅ EmailJS 전송 성공!')
       setSubmitStatus('✅ 예약 문의가 성공적으로 전송되었습니다! 24시간 내에 연락드리겠습니다.')
       
       // 폼 초기화
@@ -94,7 +105,7 @@ export default function BookingPage() {
         message: ''
       })
     } catch (error) {
-      console.error('EmailJS Error:', error)
+      console.error('❌ EmailJS 전송 실패:', error)
       setSubmitStatus('❌ 전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.')
     } finally {
       setIsSubmitting(false)
@@ -456,7 +467,7 @@ export default function BookingPage() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 placeholder-gray-500"
                       placeholder="성함을 입력해주세요"
                     />
                   </div>
@@ -472,7 +483,7 @@ export default function BookingPage() {
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 placeholder-gray-500"
                       placeholder="010-1234-5678"
                     />
                   </div>
@@ -487,7 +498,7 @@ export default function BookingPage() {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 placeholder-gray-500"
                       placeholder="example@email.com"
                     />
                   </div>
@@ -502,7 +513,7 @@ export default function BookingPage() {
                       value={formData.option}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900"
                     >
                       <option value="">촬영 옵션을 선택해주세요</option>
                       <option value="옵션 1 - 광안리 + 철망">옵션 1 - 광안리 + 철망 (390,000원)</option>
@@ -520,7 +531,7 @@ export default function BookingPage() {
                       value={formData.datetime1}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900"
                     >
                       <option value="">1순위 날짜/시간을 선택해주세요</option>
                       {getAvailableDatetimeOptions('datetime1').map((option) => (
@@ -541,7 +552,7 @@ export default function BookingPage() {
                       value={formData.datetime2}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900"
                     >
                       <option value="">2순위 날짜/시간을 선택해주세요</option>
                       {getAvailableDatetimeOptions('datetime2').map((option) => (
@@ -565,7 +576,7 @@ export default function BookingPage() {
                       value={formData.datetime3}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900"
                     >
                       <option value="">3순위 날짜/시간을 선택해주세요</option>
                       {getAvailableDatetimeOptions('datetime3').map((option) => (
@@ -589,7 +600,7 @@ export default function BookingPage() {
                       value={formData.message}
                       onChange={handleInputChange}
                       rows={4}
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 placeholder-gray-500 resize-none"
                       placeholder="추가로 문의하실 내용이나 요청사항을 입력해주세요"
                     />
                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">

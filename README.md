@@ -19,6 +19,7 @@ Next.js 14 + TypeScript + Tailwind CSS + Headless UI
 ## 🚀 로컬 실행법
 
 ### 1. 프로젝트 클론 및 의존성 설치
+
 ```bash
 # 저장소 클론
 git clone https://github.com/your-username/mckinsey-studio.git
@@ -29,6 +30,7 @@ npm install
 ```
 
 ### 2. 개발 서버 실행
+
 ```bash
 # 개발 서버 시작
 npm run dev
@@ -38,6 +40,7 @@ npm run dev
 ```
 
 ### 3. 빌드 및 배포 테스트
+
 ```bash
 # 프로덕션 빌드
 npm run build
@@ -68,11 +71,13 @@ mckinsey-studio/
 ## 🔗 GitHub 연결 및 Push
 
 ### 1. GitHub 저장소 생성
+
 1. [GitHub](https://github.com)에서 새 저장소 생성
 2. 저장소 이름: `mckinsey-studio` (권장)
 3. Public/Private 선택
 
 ### 2. 로컬에서 GitHub 연결
+
 ```bash
 # Git 초기화 (아직 안 했다면)
 git init
@@ -90,6 +95,7 @@ git push -u origin main
 ```
 
 ### 3. 이후 업데이트 Push
+
 ```bash
 # 변경사항 확인
 git status
@@ -107,12 +113,14 @@ git push
 ## 🚀 Vercel 배포 방법
 
 ### 1. Vercel 계정 생성 및 Import
+
 1. [Vercel](https://vercel.com)에 GitHub 계정으로 로그인
 2. **"New Project"** 클릭
 3. **"Import Git Repository"** 선택
 4. `mckinsey-studio` 저장소 선택
 
 ### 2. 프로젝트 설정
+
 ```javascript
 // vercel.json (선택사항 - 루트에 생성)
 {
@@ -124,11 +132,13 @@ git push
 ```
 
 ### 3. 배포 실행
+
 1. **"Deploy"** 버튼 클릭
 2. 빌드 완료까지 2-3분 대기
 3. 자동 생성된 URL 확인 (예: `mckinsey-studio-abc123.vercel.app`)
 
 ### 4. 커스텀 도메인 연결
+
 1. Vercel 대시보드 → 프로젝트 선택
 2. **"Settings"** → **"Domains"** 탭
 3. **"Add Domain"** 클릭
@@ -140,9 +150,10 @@ git push
    ```
 
 ### 5. 자동 배포 설정
+
 ✅ GitHub Push 시 자동 배포  
 ✅ Preview 배포 (PR 생성 시)  
-✅ 프로덕션 배포 (main 브랜치)  
+✅ 프로덕션 배포 (main 브랜치)
 
 ## ⚙️ 환경 변수 설정
 
@@ -156,6 +167,7 @@ NEXT_PUBLIC_KAKAO_CHAT_URL=https://pf.kakao.com/your-channel
 ```
 
 Vercel 환경 변수 설정:
+
 1. Vercel 대시보드 → 프로젝트 → Settings → Environment Variables
 2. 변수명과 값 입력 후 저장
 3. 재배포 실행
@@ -176,6 +188,97 @@ Vercel 환경 변수 설정:
 - **이메일**: support@mckineystudio.com
 - **카카오톡**: @mckinsey_studio
 - **전화**: 02-1234-5678
+
+## EmailJS 설정 및 테스트 방법
+
+### 1. EmailJS 계정 설정
+
+1. [EmailJS 공식 사이트](https://www.emailjs.com/)에서 계정 생성
+2. 새 서비스 추가 (Gmail, Outlook 등)
+3. 이메일 템플릿 생성
+4. Public Key 생성
+
+### 2. 환경변수 설정
+
+프로젝트 루트에 `.env.local` 파일 생성:
+
+```env
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+NEXT_PUBLIC_STUDIO_EMAIL=kazuya7x@naver.com
+```
+
+### 3. 이메일 템플릿 변수
+
+EmailJS 템플릿에서 사용할 변수들:
+
+```
+{{to_email}} - 받을 이메일 주소
+{{from_name}} - 신청자 이름
+{{from_phone}} - 신청자 연락처
+{{from_email}} - 신청자 이메일
+{{shooting_option}} - 촬영 옵션
+{{preferred_datetime1}} - 1순위 희망시간
+{{preferred_datetime2}} - 2순위 희망시간
+{{preferred_datetime3}} - 3순위 희망시간
+{{message}} - 추가 문의사항
+{{reply_to}} - 답장 이메일
+```
+
+### 4. 이메일 전송 테스트 방법
+
+#### A. 브라우저 개발자 도구로 테스트
+
+1. 웹사이트에서 F12 키로 개발자 도구 열기
+2. Console 탭으로 이동
+3. 예약 폼 작성 후 전송 버튼 클릭
+4. 콘솔에서 다음 로그 확인:
+   - `🚀 EmailJS 전송 시도:` - 전송 파라미터 확인
+   - `✅ EmailJS 전송 성공!` - 성공 시
+   - `❌ EmailJS 전송 실패:` - 실패 시 에러 내용
+
+#### B. 실제 이메일 수신 테스트
+
+1. 테스트용 이메일 주소로 예약 폼 작성
+2. 모든 필드 정확히 입력
+3. 전송 버튼 클릭
+4. 설정한 이메일 주소로 메일 수신 확인
+5. 자동 답장 설정 시 신청자 이메일로도 확인
+
+#### C. EmailJS 대시보드에서 확인
+
+1. EmailJS 대시보드 로그인
+2. Email Logs 메뉴에서 전송 이력 확인
+3. 성공/실패 상태 및 에러 메시지 확인
+
+### 5. 문제 해결
+
+**이메일이 안 옴:**
+
+- 환경변수 설정 확인
+- EmailJS 서비스/템플릿 ID 확인
+- 스팸 폴더 확인
+- 일일 전송 한도 확인
+
+**폼 입력이 안 됨:**
+
+- 브라우저 캐시 삭제
+- 다른 브라우저에서 테스트
+- 모바일/데스크톱 각각 테스트
+
+## 로컬 개발
+
+```bash
+npm install
+npm run dev
+```
+
+http://localhost:3000에서 확인
+
+## 배포
+
+Vercel, Netlify 등에 배포 시 환경변수도 함께 설정해야 합니다.
 
 ---
 
