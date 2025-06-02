@@ -6,35 +6,35 @@ export default function PortfolioPage() {
   const portfolioImages = [
     {
       id: 1,
-      src: "https://res.cloudinary.com/demo/image/upload/v1571218039/body_profile_1.jpg",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748873704/25.1_hifswj.png",
       alt: "바디프로필 촬영 1",
       width: 400,
       height: 600
     },
     {
       id: 2,
-      src: "https://res.cloudinary.com/demo/image/upload/v1571218039/body_profile_2.jpg", 
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748873704/21_ohzmvn.png", 
       alt: "바디프로필 촬영 2",
       width: 400,
       height: 500
     },
     {
       id: 3,
-      src: "https://res.cloudinary.com/demo/image/upload/v1571218039/body_profile_3.jpg",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748873704/28_x5zxjz.png",
       alt: "바디프로필 촬영 3", 
       width: 400,
       height: 650
     },
     {
       id: 4,
-      src: "https://res.cloudinary.com/demo/image/upload/v1571218039/body_profile_4.jpg",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748873705/22_ilzfrg.png",
       alt: "바디프로필 촬영 4",
       width: 400,
       height: 550
     },
     {
       id: 5,
-      src: "https://res.cloudinary.com/demo/image/upload/v1571218039/body_profile_5.jpg",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748874278/L1200829-6_hyalqt.jpg",
       alt: "바디프로필 촬영 5",
       width: 400,
       height: 700
@@ -48,42 +48,42 @@ export default function PortfolioPage() {
     },
     {
       id: 7,
-      src: "https://res.cloudinary.com/demo/image/upload/v1571218039/body_profile_7.jpg",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748874369/L1330447sd_bjqwv5.jpg",
       alt: "바디프로필 촬영 7",
       width: 400,
       height: 620
     },
     {
       id: 8,
-      src: "https://res.cloudinary.com/demo/image/upload/v1571218039/body_profile_8.jpg",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748674882/L1020302_whnmak.jpg",
       alt: "바디프로필 촬영 8",
       width: 400,
       height: 580
     },
     {
       id: 9,
-      src: "https://res.cloudinary.com/demo/image/upload/v1571218039/body_profile_9.jpg",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748673636/L1200780_v10geg.jpg",
       alt: "바디프로필 촬영 9",
       width: 400,
       height: 660
     },
     {
       id: 10,
-      src: "https://res.cloudinary.com/demo/image/upload/v1571218039/body_profile_10.jpg",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748677592/18_guaba3.png",
       alt: "바디프로필 촬영 10",
       width: 400,
       height: 520
     },
     {
       id: 11,
-      src: "https://res.cloudinary.com/demo/image/upload/v1571218039/body_profile_11.jpg",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748672672/6_gayjxz.png",
       alt: "바디프로필 촬영 11",
       width: 400,
       height: 640
     },
     {
       id: 12,
-      src: "https://res.cloudinary.com/demo/image/upload/v1571218039/body_profile_12.jpg",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748873703/26_isu5hq.png",
       alt: "바디프로필 촬영 12",
       width: 400,
       height: 590
