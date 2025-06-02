@@ -11,7 +11,7 @@ export default function Nav() {
     { href: '/booking', label: '예약' },
     { href: '/portfolio', label: '포트폴리오' },
     { href: '/about', label: '촬영안내' },
-    { href: '/expert-guide', label: '전문가가이드' }
+    { href: '/expert-guide', label: '바프꿀팁' }
   ]
 
   return (

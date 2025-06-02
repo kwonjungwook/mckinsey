@@ -1,4 +1,8 @@
+'use client'
+
 import Image from 'next/image'
+import { useState } from 'react'
+import ImageModal from '../../components/ImageModal'
 import Nav from '../../components/Nav'
 
 export default function PortfolioPage() {
@@ -83,7 +87,7 @@ export default function PortfolioPage() {
     },
     {
       id: 12,
-      src: "",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675712/11_ae4y3i.png",
       alt: "바디프로필 촬영 12",
       width: 400,
       height: 590
@@ -91,88 +95,110 @@ export default function PortfolioPage() {
     {
       id: 13,
       src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748874247/L1420328e_bhux6v.jpg",
-      alt: "바디프로필 촬영 9",
+      alt: "바디프로필 촬영 13",
       width: 400,
       height: 660
     },
     {
       id: 14,
       src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748874317/L1090503%E3%84%B4_qwbxe8.jpg",
-      alt: "바디프로필 촬영 10",
+      alt: "바디프로필 촬영 14",
       width: 400,
       height: 520
     },
     {
       id: 15,
       src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748873703/29_y6i1py.png",
-      alt: "바디프로필 촬영 11",
+      alt: "바디프로필 촬영 15",
       width: 400,
       height: 640
     },
     {
       id: 16,
       src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748689009/L1210421s_r0wkwt.png",
-      alt: "바디프로필 촬영 12",
+      alt: "바디프로필 촬영 16",
       width: 400,
       height: 590
     },
     {
       id: 17,
       src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675711/12_gknc5q.png",
-      alt: "바디프로필 촬영 9",
+      alt: "바디프로필 촬영 17",
       width: 400,
       height: 660
     },
     {
       id: 18,
       src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748672672/3_fsotgd.png",
-      alt: "바디프로필 촬영 10",
+      alt: "바디프로필 촬영 18",
       width: 400,
       height: 520
     },
     {
       id: 19,
       src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748873704/20_kj7ste.png",
-      alt: "바디프로필 촬영 11",
+      alt: "바디프로필 촬영 19",
       width: 400,
       height: 640
     },
     {
       id: 20,
       src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748875442/00_qmmek7.png",
-      alt: "바디프로필 촬영 12",
+      alt: "바디프로필 촬영 20",
       width: 400,
       height: 590
     },
     {
       id: 21,
-      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748874275/L1200864-5_mzerai.jpg",
-      alt: "바디프로필 촬영 9",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748677591/15_mmwnme.png",
+      alt: "바디프로필 촬영 21",
       width: 400,
       height: 660
     },
     {
       id: 22,
-      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748873704/20_kj7ste.png",
-      alt: "바디프로필 촬영 10",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748673723/123_sibqu6.jpg",
+      alt: "바디프로필 촬영 22",
       width: 400,
       height: 520
     },
     {
       id: 23,
       src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748677592/14_u8rmde.png",
-      alt: "바디프로필 촬영 11",
+      alt: "바디프로필 촬영 23",
       width: 400,
       height: 640
     },
     {
       id: 24,
       src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748873703/26_isu5hq.png",
-      alt: "바디프로필 촬영 12",
+      alt: "바디프로필 촬영 24",
       width: 400,
       height: 590
     }
   ]
+
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  // 이미지 클릭 핸들러
+  const handleImageClick = (index: number) => {
+    setCurrentImageIndex(index)
+    setIsModalOpen(true)
+  }
+
+  // 모달 네비게이션 핸들러
+  const handleNext = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % portfolioImages.length)
+  }
+
+  const handlePrev = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + portfolioImages.length) % portfolioImages.length)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -195,10 +221,11 @@ export default function PortfolioPage() {
 
           {/* Masonry Grid 포트폴리오 갤러리 */}
           <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-            {portfolioImages.map((image) => (
+            {portfolioImages.map((image, index) => (
               <div 
                 key={image.id} 
                 className="break-inside-avoid mb-4 group cursor-pointer"
+                onClick={() => handleImageClick(index)}
               >
                 <div className="relative overflow-hidden rounded-lg shadow-lg bg-white dark:bg-gray-800 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]">
                   <Image
@@ -211,15 +238,6 @@ export default function PortfolioPage() {
                     placeholder="blur"
                     blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                   />
-                  
-                  {/* 오버레이 */}
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <button className="bg-white text-gray-900 px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors">
-                        확대보기
-                      </button>
-                    </div>
-                  </div>
                 </div>
               </div>
             ))}
@@ -230,6 +248,16 @@ export default function PortfolioPage() {
           </div>     
         </div>
       </main>
+
+      {/* 이미지 모달 */}
+      <ImageModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        images={portfolioImages}
+        currentIndex={currentImageIndex}
+        onNext={handleNext}
+        onPrev={handlePrev}
+      />
     </div>
   )
 }

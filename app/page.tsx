@@ -260,17 +260,24 @@ export default function HomePage() {
 
           {/* 중앙 텍스트 콘텐츠 */}
           <div className="relative z-20 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-6 transition-all duration-700 leading-tight font-[var(--font-dancing-script)]">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-6 transition-all duration-700 leading-tight">
               {heroImages[currentSlide]?.title}
             </h1>
             <div className="h-px bg-white/30 w-12 sm:w-16 md:w-24 mx-auto mb-4 md:mb-8"></div>
             <div className="space-y-1 sm:space-y-2 text-sm sm:text-base md:text-xl lg:text-2xl transition-all duration-700">
-              <p>{heroImages[currentSlide]?.subtitle}</p>
-              <p className="opacity-90">프리미엄 바디프로필 전문 스튜디오</p>
-              <p className="opacity-80 hidden sm:block">최고의 퀄리티로 완성하는 특별한 경험</p>
+              <p className="text-balance">{heroImages[currentSlide]?.subtitle}</p>
+              <p className="opacity-90 text-balance">프리미엄 바디프로필 전문 스튜디오</p>
+              <p className="opacity-80 hidden sm:block text-balance">최고의 퀄리티로 완성하는 특별한 경험</p>
             </div>
             <div className="mt-4 md:mt-8 text-xs sm:text-sm md:text-base opacity-90">
-              문의 | 010-2957-3323
+              <a 
+                href="http://pf.kakao.com/_MxjZRxj" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-yellow-300 transition-colors text-balance"
+              >
+                📱 카카오톡 문의하기
+              </a>
             </div>
           </div>
 
@@ -337,22 +344,22 @@ export default function HomePage() {
         {/* CTA 섹션 */}
         <section className="bg-gray-50 py-12 md:py-16">
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 md:mb-6 text-balance">
               당신만의 특별한 순간을 만들어보세요
             </h2>
-            <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto text-balance">
               5년 이상의 경험과 전문성으로 완성하는 프리미엄 바디프로필
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 href="/booking"
-                className="bg-black hover:bg-gray-800 text-white font-semibold py-3 md:py-4 px-6 md:px-8 rounded-lg transition-colors duration-300 text-sm md:text-base"
+                className="bg-black hover:bg-gray-800 text-white font-semibold py-3 md:py-4 px-6 md:px-8 rounded-lg transition-colors duration-300 text-sm md:text-base btn-modern"
               >
                 예약하기
               </Link>
               <Link 
                 href="/about"
-                className="border-2 border-black text-black hover:bg-black hover:text-white font-semibold py-3 md:py-4 px-6 md:px-8 rounded-lg transition-all duration-300 text-sm md:text-base"
+                className="border-2 border-black text-black hover:bg-black hover:text-white font-semibold py-3 md:py-4 px-6 md:px-8 rounded-lg transition-all duration-300 text-sm md:text-base btn-modern"
               >
                 촬영안내
               </Link>
@@ -364,7 +371,17 @@ export default function HomePage() {
         <footer className="bg-white py-6 md:py-8 border-t">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-xs md:text-sm">
             <p>© 2024 Mckinsey Studio. All rights reserved.</p>
-            <p className="mt-2">서울특별시 강남구 | 010-1234-5678 | info@mckineystudio.com</p>
+            <p className="mt-2">
+              부산 야외촬영 전문 | 
+              <a 
+                href="http://pf.kakao.com/_MxjZRxj" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-blue-600 transition-colors ml-1"
+              >
+                카카오톡 문의
+              </a>
+            </p>
           </div>
         </footer>
       </main>

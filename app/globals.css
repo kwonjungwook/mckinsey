@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@100;200;300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -26,11 +28,69 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Pretendard', 'Inter', 'Noto Sans KR', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: white;
+  font-feature-settings: 'kern' 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* 글자 줄바꿈 최적화 */
+p, h1, h2, h3, h4, h5, h6 {
+  word-break: keep-all;
+  word-wrap: break-word;
+  line-height: 1.6;
+}
+
+/* 한글 특화 줄바꿈 */
+.text-balance {
+  text-wrap: balance;
+  word-break: keep-all;
+}
+
+/* 모바일 최적화 텍스트 */
+@media (max-width: 768px) {
+  p, h1, h2, h3, h4, h5, h6 {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  /* 긴 단어 강제 줄바꿈 방지 */
+  .mobile-text-wrap {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* 트렌디한 애니메이션 */
+.smooth-appear {
+  animation: smoothAppear 0.6s ease-out;
+}
+
+@keyframes smoothAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 버튼 호버 효과 개선 */
+.btn-modern {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+}
+
+.btn-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 @layer utilities {
