@@ -45,7 +45,7 @@ export default function PortfolioPage() {
     },
     {
       id: 6,
-      src: "https://res.cloudinary.com/demo/image/upload/v1571218039/body_profile_6.jpg",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675007/L2310757_steot9.jpg",
       alt: "바디프로필 촬영 6",
       width: 400,
       height: 480
@@ -66,7 +66,7 @@ export default function PortfolioPage() {
     },
     {
       id: 9,
-      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748677591/17_o4f1sn.png",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748677591/15_mmwnme.png",
       alt: "바디프로필 촬영 9",
       width: 400,
       height: 660
@@ -150,7 +150,7 @@ export default function PortfolioPage() {
     },
     {
       id: 21,
-      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748677591/15_mmwnme.png",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748677591/17_o4f1sn.png",
       alt: "바디프로필 촬영 21",
       width: 400,
       height: 660

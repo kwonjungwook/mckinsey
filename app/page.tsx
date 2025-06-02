@@ -269,16 +269,6 @@ export default function HomePage() {
               <p className="opacity-90 text-balance">프리미엄 바디프로필 전문 스튜디오</p>
               <p className="opacity-80 hidden sm:block text-balance">최고의 퀄리티로 완성하는 특별한 경험</p>
             </div>
-            <div className="mt-4 md:mt-8 text-xs sm:text-sm md:text-base opacity-90">
-              <a 
-                href="http://pf.kakao.com/_MxjZRxj" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-yellow-300 transition-colors text-balance"
-              >
-                📱 카카오톡 문의하기
-              </a>
-            </div>
           </div>
 
           {/* 슬라이드 인디케이터 */}
@@ -372,15 +362,7 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-xs md:text-sm">
             <p>© 2024 Mckinsey Studio. All rights reserved.</p>
             <p className="mt-2">
-              부산 야외촬영 전문 | 
-              <a 
-                href="http://pf.kakao.com/_MxjZRxj" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-blue-600 transition-colors ml-1"
-              >
-                카카오톡 문의
-              </a>
+              부산 야외촬영 전문
             </p>
           </div>
         </footer>

@@ -1,9 +1,49 @@
 'use client'
 
 import Image from 'next/image'
+import { useState } from 'react'
 import Nav from '../../components/Nav'
 
 export default function BookingPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    option: '',
+    date: '',
+    time: '',
+    message: ''
+  })
+
+  const [submitStatus, setSubmitStatus] = useState('')
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubmitStatus('전송 중...')
+    
+    // 여기서 실제 폼 전송 로직 구현 (예: 이메일 전송, API 호출 등)
+    setTimeout(() => {
+      setSubmitStatus('예약 문의가 전송되었습니다! 빠른 시일 내에 연락드리겠습니다.')
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        option: '',
+        date: '',
+        time: '',
+        message: ''
+      })
+    }, 1000)
+  }
+
   const outdoorPackages = [
     {
       name: "옵션 1",
@@ -25,12 +65,12 @@ export default function BookingPage() {
       },
       images: {
         locationImages: [
-          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748688745/20250531_194540_v6ktt8.png", // 광안리 장소 이미지 1
-          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748688745/20250531_194900_n4oh9y.png"      // 철망 장소 이미지 1
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748688745/20250531_194540_v6ktt8.png",
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748688745/20250531_194900_n4oh9y.png"
         ],
         shootingImages: [
-          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748673723/123_sibqu6.jpg",    // 광안리 촬영 이미지 1
-          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748689009/L1210421s_r0wkwt.png"         // 철망 촬영 이미지 1
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748673723/123_sibqu6.jpg",
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748689009/L1210421s_r0wkwt.png"
         ]
       },
       popular: true
@@ -58,24 +98,17 @@ export default function BookingPage() {
       seasonNote: "갈대밭은 계절에 따라 여름에는 초록색, 가을로 넘어가며 갈대색상",
       images: {
         locationImages: [
-          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748688745/20250531_195104_krd0eh.png",   // 다대포 장소 이미지 1
-          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748688747/20250531_190009_uqvy5x.png"       // 갈대밭 장소 이미지 1
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748688745/20250531_195104_krd0eh.png",
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748688747/20250531_190009_uqvy5x.png"
         ],
         shootingImages: [
-          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675711/10_qayg67.png",      // 다대포 촬영 이미지 1
-          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675711/8_i9wdsu.png"          // 갈대밭 촬영 이미지 1
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675711/10_qayg67.png",
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675711/8_i9wdsu.png"
         ]
       },
       popular: false
     }
   ]
-
-  // 카카오톡 링크 함수
-  const handleKakaoClick = (optionName: string) => {
-    const message = `안녕하세요! ${optionName} 예약 문의드립니다.`
-    const kakaoUrl = 'http://pf.kakao.com/_MxjZRxj'
-    window.open(kakaoUrl, '_blank')
-  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -96,10 +129,157 @@ export default function BookingPage() {
             </p>
           </div>
 
+          {/* 야외촬영 옵션 (양옆 배치) */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+              야외촬영 옵션
+            </h2>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {outdoorPackages.map((option, index) => (
+                <div
+                  key={index}
+                  className={`relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-2 transition-all duration-300 hover:shadow-xl ${
+                    option.popular 
+                      ? 'border-blue-500 ring-2 ring-blue-200 dark:ring-blue-800' 
+                      : 'border-gray-200 dark:border-gray-700 hover:border-blue-300'
+                  }`}
+                >
+                  {option.popular && (
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                      <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        인기
+                      </span>
+                    </div>
+                  )}
+                  
+                  <div className="text-center mb-6">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                      {option.name}
+                    </h3>
+                    <h4 className="text-lg text-blue-600 dark:text-blue-400 mb-2">
+                      {option.subtitle}
+                    </h4>
+                    <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-1">
+                      {option.price}
+                    </div>
+                    {option.timeRestriction && (
+                      <div className="text-sm text-orange-600 dark:text-orange-400 font-semibold">
+                        {option.timeRestriction}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* 촬영지 정보 */}
+                  <div className="mb-6">
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                      📍 촬영지
+                    </h4>
+                    <div className="space-y-2">
+                      {option.locations.map((location, locIndex) => (
+                        <div key={locIndex} className="text-sm">
+                          <div className="font-medium text-gray-900 dark:text-white">
+                            {location.name}
+                          </div>
+                          <div className="text-gray-500 dark:text-gray-400">
+                            {location.address}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 이미지 갤러리 */}
+                  <div className="mb-6">
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                      📷 촬영지 & 작품 미리보기
+                    </h4>
+                    <div className="grid grid-cols-2 gap-3">
+                      {option.images.locationImages.map((image, imgIndex) => (
+                        <div key={`location-${imgIndex}`} className="relative">
+                          <Image 
+                            src={image} 
+                            alt={`${option.subtitle} 장소 ${imgIndex + 1}`}
+                            width={200}
+                            height={128}
+                            className="w-full h-32 object-contain bg-gray-100 dark:bg-gray-700 rounded-lg"
+                            unoptimized
+                          />
+                          <div className="absolute top-2 left-2 bg-blue-500 text-white px-2 py-1 rounded text-xs">
+                            장소
+                          </div>
+                        </div>
+                      ))}
+                      {option.images.shootingImages.map((image, imgIndex) => (
+                        <div key={`shooting-${imgIndex}`} className="relative">
+                          <Image 
+                            src={image} 
+                            alt={`${option.subtitle} 작품 ${imgIndex + 1}`}
+                            width={200}
+                            height={128}
+                            className="w-full h-32 object-contain bg-gray-100 dark:bg-gray-700 rounded-lg"
+                            unoptimized
+                          />
+                          <div className="absolute top-2 left-2 bg-purple-500 text-white px-2 py-1 rounded text-xs">
+                            작품
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 포함사항 */}
+                  <div className="mb-6">
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                      ✅ 포함사항
+                    </h4>
+                    <ul className="space-y-2">
+                      {option.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center text-gray-600 dark:text-gray-300">
+                          <svg className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                          </svg>
+                          <span className="text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* 의상 가이드 */}
+                  <div className="mb-6">
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                      👗 추천 의상
+                    </h4>
+                    <div className="space-y-3">
+                      {Object.entries(option.outfitGuide).map(([location, guide], guideIndex) => (
+                        <div key={guideIndex} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
+                          <div className="font-medium text-gray-900 dark:text-white text-sm mb-1">
+                            {location}
+                          </div>
+                          <div className="text-xs text-gray-600 dark:text-gray-300">
+                            {guide}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    {option.seasonNote && (
+                      <div className="mt-3 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                        <div className="text-xs text-yellow-800 dark:text-yellow-200">
+                          💡 {option.seasonNote}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 예약 정보 및 폼 */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             
             {/* 예약 안내 */}
-            <div className="order-2 lg:order-1">
+            <div>
               <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
                   예약 안내
@@ -133,31 +313,6 @@ export default function BookingPage() {
                   </div>
                 </div>
 
-                {/* 예약 방법 */}
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                    📝 예약 방법
-                  </h3>
-                  <div className="space-y-3 text-gray-600 dark:text-gray-300">
-                    <div className="flex items-start">
-                      <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
-                      <span className="text-balance">원하는 옵션 선택</span>
-                    </div>
-                    <div className="flex items-start">
-                      <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</span>
-                      <span className="text-balance">아래 카카오톡으로 연락</span>
-                    </div>
-                    <div className="flex items-start">
-                      <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</span>
-                      <span className="text-balance">희망 날짜/시간 + 옵션명 전송</span>
-                    </div>
-                    <div className="flex items-start">
-                      <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">4</span>
-                      <span className="text-balance">계약금 입금 후 예약 확정</span>
-                    </div>
-                  </div>
-                </div>
-
                 {/* 계약금 및 결제 정보 */}
                 <div className="mb-6">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
@@ -186,25 +341,34 @@ export default function BookingPage() {
                   </div>
                 </div>
 
-                {/* 자동 예약 버튼 */}
-                <div className="space-y-3">
-                  <button 
-                    onClick={() => handleKakaoClick('바디프로필')}
-                    className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center btn-modern"
-                  >
-                    <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                    </svg>
-                    카카오톡 예약하기
-                  </button>
-                  
-                  <div className="text-center text-sm text-gray-500 dark:text-gray-400">
-                    <span className="text-balance">&quot;옵션번호 + 희망날짜/시간&quot;만 보내주세요!</span><br/>
-                    <span className="text-balance">예: &quot;옵션1 + 6월 8일 오후 2시&quot;</span>
+                {/* 환불 규정 */}
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                    📋 취소 및 환불 정책
+                  </h3>
+                  <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-4">
+                    <div className="space-y-2 text-sm text-yellow-800 dark:text-yellow-200">
+                      <div className="flex items-start">
+                        <span className="font-semibold mr-2">•</span>
+                        <span><strong>촬영일 기준 1개월 전까지</strong>: 100% 환불 가능</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold mr-2">•</span>
+                        <span><strong>촬영일 기준 1개월 미만</strong>: 환불 불가</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold mr-2">•</span>
+                        <span>날씨로 인한 촬영 연기는 상호 협의하에 진행</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold mr-2">•</span>
+                        <span>태풍, 폭우 등 촬영 불가능한 기상 상황에서는 일정 조정 가능</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 
-                <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                   <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">
                     ⚠️ 야외촬영 주의사항
                   </h3>
@@ -218,162 +382,143 @@ export default function BookingPage() {
               </div>
             </div>
 
-            {/* 야외촬영 패키지 */}
-            <div className="order-1 lg:order-2">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-                야외촬영 옵션
-              </h2>
-              
-              <div className="space-y-8">
-                {outdoorPackages.map((option, index) => (
-                  <div
-                    key={index}
-                    className={`relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-2 transition-all duration-300 hover:shadow-xl ${
-                      option.popular 
-                        ? 'border-blue-500 ring-2 ring-blue-200 dark:ring-blue-800' 
-                        : 'border-gray-200 dark:border-gray-700 hover:border-blue-300'
-                    }`}
-                  >
-                    {option.popular && (
-                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                        <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                          인기
-                        </span>
-                      </div>
-                    )}
-                    
-                    <div className="text-center mb-6">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
-                        {option.name}
-                      </h3>
-                      <h4 className="text-lg text-blue-600 dark:text-blue-400 mb-2">
-                        {option.subtitle}
-                      </h4>
-                      <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-1">
-                        {option.price}
-                      </div>
-                      {option.timeRestriction && (
-                        <div className="text-sm text-orange-600 dark:text-orange-400 font-semibold">
-                          {option.timeRestriction}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* 촬영지 정보 */}
-                    <div className="mb-6">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                        📍 촬영지
-                      </h4>
-                      <div className="space-y-2">
-                        {option.locations.map((location, locIndex) => (
-                          <div key={locIndex} className="text-sm">
-                            <div className="font-medium text-gray-900 dark:text-white">
-                              {location.name}
-                            </div>
-                            <div className="text-gray-500 dark:text-gray-400">
-                              {location.address}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* 이미지 갤러리 */}
-                    <div className="mb-6">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                        📷 촬영지 & 작품 미리보기
-                      </h4>
-                      <div className="grid grid-cols-2 gap-3">
-                        {/* 장소 이미지들 */}
-                        {option.images.locationImages.map((image, imgIndex) => (
-                          <div key={`location-${imgIndex}`} className="relative">
-                            <Image 
-                              src={image} 
-                              alt={`${option.subtitle} 장소 ${imgIndex + 1}`}
-                              width={200}
-                              height={128}
-                              className="w-full h-32 object-contain bg-gray-100 dark:bg-gray-700 rounded-lg"
-                              unoptimized
-                            />
-                            <div className="absolute top-2 left-2 bg-blue-500 text-white px-2 py-1 rounded text-xs">
-                              장소
-                            </div>
-                          </div>
-                        ))}
-                        {/* 촬영 이미지들 */}
-                        {option.images.shootingImages.map((image, imgIndex) => (
-                          <div key={`shooting-${imgIndex}`} className="relative">
-                            <Image 
-                              src={image} 
-                              alt={`${option.subtitle} 작품 ${imgIndex + 1}`}
-                              width={200}
-                              height={128}
-                              className="w-full h-32 object-contain bg-gray-100 dark:bg-gray-700 rounded-lg"
-                              unoptimized
-                            />
-                            <div className="absolute top-2 left-2 bg-purple-500 text-white px-2 py-1 rounded text-xs">
-                              작품
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* 포함사항 */}
-                    <div className="mb-6">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                        ✅ 포함사항
-                      </h4>
-                      <ul className="space-y-2">
-                        {option.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-center text-gray-600 dark:text-gray-300">
-                            <svg className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
-                            </svg>
-                            <span className="text-sm">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* 의상 가이드 */}
-                    <div className="mb-6">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                        👗 추천 의상
-                      </h4>
-                      <div className="space-y-3">
-                        {Object.entries(option.outfitGuide).map(([location, guide], guideIndex) => (
-                          <div key={guideIndex} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
-                            <div className="font-medium text-gray-900 dark:text-white text-sm mb-1">
-                              {location}
-                            </div>
-                            <div className="text-xs text-gray-600 dark:text-gray-300">
-                              {guide}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                      {option.seasonNote && (
-                        <div className="mt-3 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
-                          <div className="text-xs text-yellow-800 dark:text-yellow-200">
-                            💡 {option.seasonNote}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                    
-                    <button 
-                      onClick={() => handleKakaoClick(option.name)}
-                      className={`w-full py-3 px-4 rounded-lg font-semibold transition-all duration-300 btn-modern ${
-                        option.popular
-                          ? 'bg-yellow-400 hover:bg-yellow-500 text-black'
-                          : 'bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-white'
-                      }`}
-                    >
-                      🗨️ {option.name} 카카오톡 문의
-                    </button>
+            {/* 예약 폼 */}
+            <div>
+              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+                  예약 문의
+                </h2>
+                
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      이름 *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                      placeholder="성함을 입력해주세요"
+                    />
                   </div>
-                ))}
+
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      연락처 *
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                      placeholder="010-1234-5678"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      이메일
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                      placeholder="example@email.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="option" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      촬영 옵션 *
+                    </label>
+                    <select
+                      id="option"
+                      name="option"
+                      value={formData.option}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    >
+                      <option value="">촬영 옵션을 선택해주세요</option>
+                      <option value="옵션 1 - 광안리 + 철망">옵션 1 - 광안리 + 철망 (390,000원)</option>
+                      <option value="옵션 2 - 다대포 + 갈대밭">옵션 2 - 다대포 + 갈대밭 (450,000원)</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="date" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      희망 촬영일 *
+                    </label>
+                    <input
+                      type="date"
+                      id="date"
+                      name="date"
+                      value={formData.date}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="time" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      희망 시간 *
+                    </label>
+                    <select
+                      id="time"
+                      name="time"
+                      value={formData.time}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    >
+                      <option value="">시간을 선택해주세요</option>
+                      <option value="오전 9시">오전 9시</option>
+                      <option value="오후 2시">오후 2시</option>
+                      <option value="오후 5시">오후 5시</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      추가 문의사항
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      rows={4}
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                      placeholder="추가로 문의하실 내용이나 요청사항을 입력해주세요"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 btn-modern"
+                  >
+                    예약 문의 전송
+                  </button>
+                </form>
+
+                {submitStatus && (
+                  <div className="mt-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                    <p className="text-green-800 dark:text-green-200 text-sm text-center">
+                      {submitStatus}
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>

@@ -111,18 +111,6 @@ export default function AboutPage() {
                     대중교통 이용도 가능하며, 자세한 만남 장소는 예약 확정 후 별도 안내드립니다.
                   </p>
                 </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 text-balance">
-                    취소 및 환불 정책
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-balance">
-                    <strong>촬영일 기준 1개월 전까지</strong>: 100% 환불 가능<br/>
-                    <strong>촬영일 기준 1개월 미만</strong>: 환불 불가<br/>
-                    날씨로 인한 촬영 연기는 상호 협의하에 진행됩니다. 
-                    태풍, 폭우 등 촬영이 불가능한 기상 상황에서는 일정 조정이 가능합니다.
-                  </p>
-                </div>
               </div>
             </div>
           </section>
