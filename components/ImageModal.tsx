@@ -30,6 +30,7 @@ export default function ImageModal({
   const [isMobile, setIsMobile] = useState(false)
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
+  const [isDragging, setIsDragging] = useState(false)
   const imageRef = useRef<HTMLDivElement>(null)
 
   // 모바일 감지
@@ -78,21 +79,26 @@ export default function ImageModal({
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [isOpen, onNext, onPrev])
 
-  // 터치 핸들러 (모바일용)
+  // 터치 핸들러 (모바일용) - 성능 개선
   const minSwipeDistance = 50
 
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null)
     setTouchStart(e.touches[0].clientX)
+    setIsDragging(false)
   }
 
   const onTouchMove = (e: React.TouchEvent) => {
     if (!touchStart) return
     setTouchEnd(e.touches[0].clientX)
+    setIsDragging(true)
   }
 
   const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return
+    if (!touchStart || !touchEnd || !isDragging) {
+      setIsDragging(false)
+      return
+    }
     
     const distance = touchStart - touchEnd
     const isLeftSwipe = distance > minSwipeDistance
@@ -103,6 +109,11 @@ export default function ImageModal({
     } else if (isRightSwipe && currentIndex > 0) {
       onPrev()
     }
+
+    // 상태 초기화
+    setTouchStart(null)
+    setTouchEnd(null)
+    setIsDragging(false)
   }
 
   if (!isOpen || !images[currentIndex]) return null
@@ -123,6 +134,7 @@ export default function ImageModal({
         onTouchStart={isMobile ? onTouchStart : undefined}
         onTouchMove={isMobile ? onTouchMove : undefined}
         onTouchEnd={isMobile ? onTouchEnd : undefined}
+        style={{ touchAction: 'pan-x' }}
       >
         {/* 닫기 버튼 */}
         <button
@@ -155,13 +167,36 @@ export default function ImageModal({
           </button>
         )}
 
+        {/* 모바일 양쪽 투명 화살표 버튼 */}
+        {isMobile && images.length > 1 && (
+          <>
+            {/* 왼쪽 화살표 */}
+            <button
+              onClick={onPrev}
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 bg-black/20 hover:bg-black/40 backdrop-blur-sm rounded-full p-3 transition-all duration-200"
+              aria-label="이전 이미지"
+            >
+              <ChevronLeft className="w-6 h-6 text-white/70" />
+            </button>
+            
+            {/* 오른쪽 화살표 */}
+            <button
+              onClick={onNext}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 bg-black/20 hover:bg-black/40 backdrop-blur-sm rounded-full p-3 transition-all duration-200"
+              aria-label="다음 이미지"
+            >
+              <ChevronRight className="w-6 h-6 text-white/70" />
+            </button>
+          </>
+        )}
+
         {/* 이미지 컨테이너 */}
         <div 
           ref={imageRef}
           className={`
             relative flex items-center justify-center
             ${isMobile 
-              ? 'w-full h-full px-4 py-20' 
+              ? 'w-full h-full px-12 py-20' 
               : 'max-w-[90vw] max-h-[90vh] p-8'
             }
           `}
@@ -175,11 +210,11 @@ export default function ImageModal({
               object-contain
               ${isMobile 
                 ? 'w-full h-full max-w-none' 
-                : 'w-auto h-auto min-w-[50vw] max-w-[85vw] max-h-[85vh]'
+                : 'w-auto h-auto max-w-[85vw] max-h-[85vh]'
               }
             `}
             style={{
-              transform: isMobile ? 'none' : 'scale(2.2)',
+              transform: isMobile ? 'none' : 'scale(1.5)',
               transformOrigin: 'center'
             }}
             priority
@@ -187,46 +222,12 @@ export default function ImageModal({
           />
         </div>
 
-        {/* 이미지 정보 & 모바일 네비게이션 */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex items-center space-x-4">
-          {/* 모바일 이전 버튼 */}
-          {isMobile && images.length > 1 && currentIndex > 0 && (
-            <button
-              onClick={onPrev}
-              className="bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-200"
-              aria-label="이전 이미지"
-            >
-              <ChevronLeft className="w-6 h-6 text-white" />
-            </button>
-          )}
-
-          {/* 이미지 카운터 */}
-          {images.length > 1 && (
+        {/* 이미지 카운터 - 하단 중앙 */}
+        {images.length > 1 && (
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20">
             <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
               <span className="text-white text-sm font-medium">
                 {currentIndex + 1} / {images.length}
-              </span>
-            </div>
-          )}
-
-          {/* 모바일 다음 버튼 */}
-          {isMobile && images.length > 1 && currentIndex < images.length - 1 && (
-            <button
-              onClick={onNext}
-              className="bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-200"
-              aria-label="다음 이미지"
-            >
-              <ChevronRight className="w-6 h-6 text-white" />
-            </button>
-          )}
-        </div>
-
-        {/* 모바일 스와이프 힌트 */}
-        {isMobile && images.length > 1 && (
-          <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-20">
-            <div className="bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-              <span className="text-white text-xs opacity-75">
-                ← 스와이프하여 이동 →
               </span>
             </div>
           </div>

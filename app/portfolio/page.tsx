@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
+import Footer from '../../components/Footer'
 import ImageModal from '../../components/ImageModal'
 import Nav from '../../components/Nav'
 
@@ -295,6 +296,9 @@ export default function PortfolioPage() {
         onNext={handleNext}
         onPrev={handlePrev}
       />
+      
+      {/* 푸터 */}
+      <Footer />
     </div>
   )
 }

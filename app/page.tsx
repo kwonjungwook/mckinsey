@@ -348,7 +348,7 @@ export default function HomePage() {
                 href="/booking"
                 className="bg-black hover:bg-gray-800 text-white font-semibold py-4 md:py-5 px-8 md:px-10 rounded-lg transition-colors duration-300 text-base md:text-lg btn-modern"
               >
-                🏖️ 바다 촬영 예약하기
+                🏖️ 예약하기
               </Link>
               <Link 
                 href="/about"
@@ -386,8 +386,7 @@ export default function HomePage() {
                 <h4 className="text-lg font-semibold text-white mb-4">📞 Contact</h4>
                 <div className="space-y-2 text-gray-300">
                   <p>📧 Email: kazuya7x@naver.com</p>
-                  <p>📱 Phone: 010-2957-3323</p>
-                  <p>🕐 주말 촬영 전문</p>
+                  
                 </div>
               </div>
 
@@ -396,7 +395,7 @@ export default function HomePage() {
                 <h4 className="text-lg font-semibold text-white mb-4">🔗 Quick Links</h4>
                 <div className="space-y-2">
                   <Link href="/booking" className="block text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                    🏖️ 바다 촬영 예약
+                    🏖️ 예약
                   </Link>
                   <Link href="/portfolio" className="block text-gray-300 hover:text-blue-400 transition-colors duration-300">
                     📸 Portfolio 보기
@@ -414,7 +413,7 @@ export default function HomePage() {
             {/* 하단 섹션 */}
             <div className="text-center space-y-4">
               <p className="text-gray-400 text-sm md:text-base">
-                © 2024 Mckinsey Studio. All rights reserved.
+                © 2025 Mckinsey Studio. All rights reserved.
               </p>
               <div className="flex justify-center items-center space-x-8 text-gray-500 text-xs md:text-sm">
                 <span className="flex items-center">

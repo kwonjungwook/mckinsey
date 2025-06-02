@@ -3,6 +3,7 @@
 import emailjs from '@emailjs/browser'
 import Image from 'next/image'
 import { useState } from 'react'
+import Footer from '../../components/Footer'
 import Nav from '../../components/Nav'
 
 export default function BookingPage() {
@@ -348,9 +349,7 @@ export default function BookingPage() {
                   </h3>
                   <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
                     <div className="text-center mb-4">
-                      <span className="text-xl font-bold text-blue-600 dark:text-blue-400">
-                        주말만 운영 (토요일, 일요일)
-                      </span>
+                     
                     </div>
                     <div className="grid grid-cols-3 gap-3">
                       <div className="text-center p-3 bg-white dark:bg-gray-800 rounded-lg">
@@ -630,6 +629,9 @@ export default function BookingPage() {
           </div>
         </div>
       </main>
+      
+      {/* 푸터 */}
+      <Footer />
     </div>
   )
 }

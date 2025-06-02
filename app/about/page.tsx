@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Footer from '../../components/Footer'
 import Nav from '../../components/Nav'
 
 export default function AboutPage() {
@@ -186,6 +187,9 @@ export default function AboutPage() {
           </div>
         </div>
       </main>
+      
+      {/* 푸터 */}
+      <Footer />
     </div>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Footer from '../../components/Footer'
 import Nav from '../../components/Nav'
 
 export default function ExpertGuidePage() {
@@ -357,6 +358,9 @@ export default function ExpertGuidePage() {
           </div>
         </div>
       </main>
+      
+      {/* 푸터 */}
+      <Footer />
     </div>
   )
 }
