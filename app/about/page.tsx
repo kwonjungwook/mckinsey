@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import Nav from '../../components/Nav'
 
 export default function AboutPage() {
@@ -183,26 +182,7 @@ export default function AboutPage() {
               </div>
             </div>
           </section>
-
-          {/* 4. 전문가 가이드 링크 */}
-          <section className="mb-16">
-            <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-8 shadow-lg text-center text-white">
-              <h2 className="text-2xl font-bold mb-4">
-                💪 바디프로필 전문가 가이드
-              </h2>
-              <p className="text-lg mb-6 opacity-90">
-                더 완벽한 바디프로필을 위한 전문 준비 과정을 알아보세요.
-                촬영 전 몸 관리부터 당일 컨디션 조절까지 상세한 가이드를 제공합니다.
-              </p>
-              <Link 
-                href="/expert-guide"
-                className="inline-block bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
-              >
-                전문가 가이드 보기 →
-              </Link>
-            </div>
-          </section>
-
+      
           {/* CTA 섹션 */}
           <div className="bg-gradient-to-r from-blue-500 to-teal-500 rounded-2xl p-8 text-center text-white">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
