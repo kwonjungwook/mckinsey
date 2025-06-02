@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import Nav from '../../components/Nav'
 
 export default function AboutPage() {
@@ -15,15 +16,15 @@ export default function AboutPage() {
       <Nav />
       
       {/* 메인 콘텐츠 */}
-      <main className="pt-20 pb-12">
+      <main className="pt-24 md:pt-32 pb-16 md:pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* 페이지 제목 */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 text-balance">
+          <div className="text-center mb-16 md:mb-20">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 md:mb-8 text-balance">
               촬영 안내
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-balance">
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-balance leading-relaxed">
               부산 바다를 배경으로 한 완벽한 바디프로필 촬영을 위한 준비사항과 진행 과정을 확인해보세요
             </p>
           </div>
@@ -175,12 +176,12 @@ export default function AboutPage() {
               더 궁금한 점이 있으시면 언제든지 편하게 문의해 주세요. 친절하게 상담해 드립니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={handleKakaoClick}
-                className="bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors"
+              <Link 
+                href="/booking"
+                className="bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors btn-modern"
               >
-                카카오톡 상담
-              </button>
+                예약 문의하기
+              </Link>
             </div>
           </div>
         </div>

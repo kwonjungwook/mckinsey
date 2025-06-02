@@ -17,7 +17,7 @@ export default function PortfolioPage() {
     },
     {
       id: 2,
-      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748873704/21_ohzmvn.png", 
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748672672/6_gayjxz.png", 
       alt: "바디프로필 촬영 2",
       width: 400,
       height: 500
@@ -66,7 +66,7 @@ export default function PortfolioPage() {
     },
     {
       id: 9,
-      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748677591/15_mmwnme.png",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748677592/14_u8rmde.png",
       alt: "바디프로필 촬영 9",
       width: 400,
       height: 660
@@ -80,7 +80,7 @@ export default function PortfolioPage() {
     },
     {
       id: 11,
-      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748672672/6_gayjxz.png",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748873704/21_ohzmvn.png",
       alt: "바디프로필 촬영 11",
       width: 400,
       height: 640
@@ -164,7 +164,7 @@ export default function PortfolioPage() {
     },
     {
       id: 23,
-      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748677592/14_u8rmde.png",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748873704/28_x5zxjz.png",
       alt: "바디프로필 촬영 23",
       width: 400,
       height: 640
@@ -206,17 +206,54 @@ export default function PortfolioPage() {
       <Nav />
       
       {/* 메인 콘텐츠 */}
-      <main className="pt-20 pb-12">
+      <main className="pt-24 md:pt-32 pb-16 md:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* 페이지 제목 */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              포트폴리오
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Mckinsey Studio에서 촬영한 바디프로필 작품들을 만나보세요
-            </p>
+          <div className="relative text-center mb-16 md:mb-20">
+            {/* 배경 장식 */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-5">
+              <div className="text-[15rem] md:text-[20rem] font-bold text-gray-900 dark:text-white select-none">
+                ART
+              </div>
+            </div>
+            
+            <div className="relative z-10">
+              <div className="inline-block mb-6 md:mb-8">
+                <span className="px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full text-sm md:text-base text-gray-700 dark:text-gray-300 backdrop-blur-sm border border-white/20">
+                  📸 Mckinsey Studio Collection
+                </span>
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 md:mb-8 bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent dark:from-white dark:via-blue-200 dark:to-white">
+                Portfolio
+              </h1>
+              
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mb-6 md:mb-8 rounded-full"></div>
+              
+              <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed text-balance">
+                완벽한 순간들의 컬렉션<br/>
+                <span className="text-lg md:text-xl opacity-80">감각적인 연출과 세련된 터치로 완성된 작품들을 만나보세요</span>
+              </p>
+              
+              {/* 통계 정보 */}
+              <div className="flex justify-center items-center space-x-8 md:space-x-12 mt-8 md:mt-12 text-sm md:text-base text-gray-500 dark:text-gray-400">
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400">24+</div>
+                  <div>Featured Works</div>
+                </div>
+                <div className="w-px h-12 bg-gray-300 dark:bg-gray-600"></div>
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-purple-600 dark:text-purple-400">100%</div>
+                  <div>Satisfaction</div>
+                </div>
+                <div className="w-px h-12 bg-gray-300 dark:bg-gray-600"></div>
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-emerald-600 dark:text-emerald-400">Premium</div>
+                  <div>Quality</div>
+                </div>
+              </div>
+            </div>
           </div>         
 
           {/* Masonry Grid 포트폴리오 갤러리 */}

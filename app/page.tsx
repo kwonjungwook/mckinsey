@@ -41,32 +41,32 @@ export default function HomePage() {
       src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748678877/garo4_stfpxa.png",
       mobileSrc: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748672672/2_wvbhln.png",
       alt: "바디프로필 촬영 - 강력한 포즈",
-      title: "Body Profile by Mckinsey Studio",
-      subtitle: "당신의 아름다운 순간을 영원히 담아내는"
+      title: "Beyond Ordinary",
+      subtitle: "평범함을 넘어선 당신만의 이야기"
     },
     {
       id: 2,
       src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748678877/garo1_l1eewg.png",
       mobileSrc: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675711/12_gknc5q.png",
       alt: "바디프로필 촬영 - 우아한 실루엣",
-      title: "Professional Body Profile",
-      subtitle: "프리미엄 바디프로필 전문 스튜디오"
+      title: "Timeless Beauty",
+      subtitle: "시간을 초월한 아름다움의 순간들"
     },
     {
       id: 3,
       src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748678876/garo2_ghfime.png",
       mobileSrc: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675007/L2310757_steot9.jpg",
       alt: "바디프로필 촬영 - 자연스러운 매력",
-      title: "Capture Your Best Moment",
-      subtitle: "최고의 퀄리티로 완성하는 특별한 경험"
+      title: "Pure Essence",
+      subtitle: "있는 그대로의 자연스러운 매력을 발견하다"
     },
     {
       id: 4,
       src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748678876/garo3_imvjgm.png",
       mobileSrc: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748672672/1_azcltq.png",
       alt: "바디프로필 촬영 - 역동적인 움직임",
-      title: "Transform Your Vision",
-      subtitle: "당신만의 스토리를 담아내는 전문 촬영"
+      title: "Mckinsey Studio",
+      subtitle: "완벽한 순간을 만들어가는 사람들"
     }
   ]
 
@@ -264,10 +264,12 @@ export default function HomePage() {
               {heroImages[currentSlide]?.title}
             </h1>
             <div className="h-px bg-white/30 w-12 sm:w-16 md:w-24 mx-auto mb-4 md:mb-8"></div>
-            <div className="space-y-1 sm:space-y-2 text-sm sm:text-base md:text-xl lg:text-2xl transition-all duration-700">
+            <div className="space-y-2 sm:space-y-3 text-sm sm:text-base md:text-xl lg:text-2xl transition-all duration-700">
               <p className="text-balance">{heroImages[currentSlide]?.subtitle}</p>
-              <p className="opacity-90 text-balance">프리미엄 바디프로필 전문 스튜디오</p>
-              <p className="opacity-80 hidden sm:block text-balance">최고의 퀄리티로 완성하는 특별한 경험</p>
+              <p className="opacity-90 text-balance">감각적인 연출과 완벽한 디테일로</p>
+              <p className="opacity-80 hidden sm:block text-balance text-base md:text-lg">
+                당신이 꿈꿔왔던 그 모습, 지금 현실로 만나보세요
+              </p>
             </div>
           </div>
 
@@ -290,8 +292,8 @@ export default function HomePage() {
         </section>
 
         {/* 포트폴리오 갤러리 섹션 */}
-        <section className="pt-8 pb-12 md:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        <section className="pt-12 pb-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {portfolioImages.map((image) => (
               <Link 
                 key={image.id}
@@ -321,50 +323,115 @@ export default function HomePage() {
           </div>
 
           {/* 하단 더보기 링크 */}
-          <div className="text-center mt-8 md:mt-12">
+          <div className="text-center mt-12 md:mt-16">
             <Link 
               href="/portfolio"
-              className="inline-block text-gray-600 hover:text-gray-900 font-medium transition-colors duration-300 text-sm md:text-base"
+              className="inline-block text-gray-600 hover:text-gray-900 font-medium transition-colors duration-300 text-base md:text-lg"
             >
-              더 많은 작품 보기 →
+              📸 Portfolio 전체보기 →
             </Link>
           </div>
         </section>
 
         {/* CTA 섹션 */}
-        <section className="bg-gray-50 py-12 md:py-16">
+        <section className="bg-gray-50 py-16 md:py-20 lg:py-24">
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 md:mb-6 text-balance">
-              당신만의 특별한 순간을 만들어보세요
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-8 text-balance">
+              당신이 상상했던 그 모습을 현실로
             </h2>
-            <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto text-balance">
-              5년 이상의 경험과 전문성으로 완성하는 프리미엄 바디프로필
+            <p className="text-lg md:text-xl text-gray-600 mb-8 md:mb-10 max-w-2xl mx-auto text-balance leading-relaxed">
+              트렌디한 감각과 전문적인 기술력이 만나<br/>
+              완벽한 밸런스의 바디프로필이 탄생합니다
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link 
                 href="/booking"
-                className="bg-black hover:bg-gray-800 text-white font-semibold py-3 md:py-4 px-6 md:px-8 rounded-lg transition-colors duration-300 text-sm md:text-base btn-modern"
+                className="bg-black hover:bg-gray-800 text-white font-semibold py-4 md:py-5 px-8 md:px-10 rounded-lg transition-colors duration-300 text-base md:text-lg btn-modern"
               >
-                예약하기
+                🏖️ 바다 촬영 예약하기
               </Link>
               <Link 
                 href="/about"
-                className="border-2 border-black text-black hover:bg-black hover:text-white font-semibold py-3 md:py-4 px-6 md:px-8 rounded-lg transition-all duration-300 text-sm md:text-base btn-modern"
+                className="border-2 border-black text-black hover:bg-black hover:text-white font-semibold py-4 md:py-5 px-8 md:px-10 rounded-lg transition-all duration-300 text-base md:text-lg btn-modern"
               >
-                촬영안내
+                📋 촬영 준비사항
               </Link>
             </div>
           </div>
         </section>
 
         {/* 푸터 */}
-        <footer className="bg-white py-6 md:py-8 border-t">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-xs md:text-sm">
-            <p>© 2024 Mckinsey Studio. All rights reserved.</p>
-            <p className="mt-2">
-              부산 야외촬영 전문
-            </p>
+        <footer className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900">
+          {/* 장식적 상단 라인 */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"></div>
+          
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+            
+            {/* 상단 섹션 */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              
+              {/* 스튜디오 소개 */}
+              <div className="text-center md:text-left">
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-serif italic" style={{ fontFamily: 'Dancing Script, cursive' }}>
+                  Mckinsey Studio
+                </h3>
+                <p className="text-gray-300 leading-relaxed">
+                  감각적인 연출과 완벽한 디테일로<br/>
+                  당신만의 특별한 순간을 만들어갑니다
+                </p>
+              </div>
+
+              {/* 연락처 정보 */}
+              <div className="text-center">
+                <h4 className="text-lg font-semibold text-white mb-4">📞 Contact</h4>
+                <div className="space-y-2 text-gray-300">
+                  <p>📧 Email: kazuya7x@naver.com</p>
+                  <p>📱 Phone: 010-2957-3323</p>
+                  <p>🕐 주말 촬영 전문</p>
+                </div>
+              </div>
+
+              {/* 소셜 미디어 & 메뉴 */}
+              <div className="text-center md:text-right">
+                <h4 className="text-lg font-semibold text-white mb-4">🔗 Quick Links</h4>
+                <div className="space-y-2">
+                  <Link href="/booking" className="block text-gray-300 hover:text-blue-400 transition-colors duration-300">
+                    🏖️ 바다 촬영 예약
+                  </Link>
+                  <Link href="/portfolio" className="block text-gray-300 hover:text-blue-400 transition-colors duration-300">
+                    📸 Portfolio 보기
+                  </Link>
+                  <Link href="/about" className="block text-gray-300 hover:text-blue-400 transition-colors duration-300">
+                    📋 촬영 준비사항
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* 구분선 */}
+            <div className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-8"></div>
+
+            {/* 하단 섹션 */}
+            <div className="text-center space-y-4">
+              <p className="text-gray-400 text-sm md:text-base">
+                © 2024 Mckinsey Studio. All rights reserved.
+              </p>
+              <div className="flex justify-center items-center space-x-8 text-gray-500 text-xs md:text-sm">
+                <span className="flex items-center">
+                  🌊 퀄리티가 다른 바디프로필
+                </span>
+                <span className="flex items-center">
+                  ✨ 당신만의 특별한 순간
+                </span>
+                <span className="flex items-center">
+                  📷 전문 스튜디오
+                </span>
+              </div>
+            </div>
           </div>
+
+          {/* 장식적 하단 그라데이션 */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"></div>
         </footer>
       </main>
     </div>

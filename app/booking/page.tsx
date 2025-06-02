@@ -1,5 +1,6 @@
 'use client'
 
+import emailjs from '@emailjs/browser'
 import Image from 'next/image'
 import { useState } from 'react'
 import Nav from '../../components/Nav'
@@ -10,12 +11,14 @@ export default function BookingPage() {
     phone: '',
     email: '',
     option: '',
-    date: '',
-    time: '',
+    datetime1: '',  // 1순위 희망 날짜/시간
+    datetime2: '',  // 2순위 희망 날짜/시간  
+    datetime3: '',  // 3순위 희망 날짜/시간
     message: ''
   })
 
   const [submitStatus, setSubmitStatus] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -25,23 +28,76 @@ export default function BookingPage() {
     }))
   }
 
+  // 날짜/시간 옵션들 (주말만 운영)
+  const datetimeOptions = [
+    { value: "토요일 오전 9시", label: "토요일 오전 9시" },
+    { value: "토요일 오후 2시", label: "토요일 오후 2시" },
+    { value: "토요일 오후 5시", label: "토요일 오후 5시" },
+    { value: "일요일 오전 9시", label: "일요일 오전 9시" },
+    { value: "일요일 오후 2시", label: "일요일 오후 2시" },
+    { value: "일요일 오후 5시", label: "일요일 오후 5시" }
+  ]
+
+  // 각 날짜/시간 선택에서 이미 선택된 것들을 제외한 옵션들 반환
+  const getAvailableDatetimeOptions = (currentField: string) => {
+    const selectedDatetimes = [formData.datetime1, formData.datetime2, formData.datetime3].filter(datetime => datetime && datetime !== formData[currentField as keyof typeof formData])
+    return datetimeOptions.filter(option => !selectedDatetimes.includes(option.value))
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsSubmitting(true)
     setSubmitStatus('전송 중...')
     
-    // 여기서 실제 폼 전송 로직 구현 (예: 이메일 전송, API 호출 등)
-    setTimeout(() => {
-      setSubmitStatus('예약 문의가 전송되었습니다! 빠른 시일 내에 연락드리겠습니다.')
+    // EmailJS 설정 (실제 사용 시 환경변수로 관리하세요)
+    // .env.local 파일에 다음 환경변수들을 추가하세요:
+    // NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+    // NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id  
+    // NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+    // NEXT_PUBLIC_STUDIO_EMAIL=kazuya7x@naver.com
+    
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID'
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID'
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
+    const studioEmail = process.env.NEXT_PUBLIC_STUDIO_EMAIL || 'kazuya7x@naver.com'
+
+    // 이메일 템플릿 파라미터
+    const templateParams = {
+      to_email: studioEmail, // 받을 이메일 주소 (귀하의 이메일)
+      from_name: formData.name,
+      from_phone: formData.phone,
+      from_email: formData.email,
+      shooting_option: formData.option,
+      preferred_datetime1: formData.datetime1,
+      preferred_datetime2: formData.datetime2,
+      preferred_datetime3: formData.datetime3,
+      message: formData.message || '추가 문의사항 없음',
+      reply_to: formData.email
+    }
+
+    try {
+      // EmailJS로 이메일 전송
+      await emailjs.send(serviceId, templateId, templateParams, publicKey)
+      
+      setSubmitStatus('✅ 예약 문의가 성공적으로 전송되었습니다! 24시간 내에 연락드리겠습니다.')
+      
+      // 폼 초기화
       setFormData({
         name: '',
         phone: '',
         email: '',
         option: '',
-        date: '',
-        time: '',
+        datetime1: '',
+        datetime2: '',
+        datetime3: '',
         message: ''
       })
-    }, 1000)
+    } catch (error) {
+      console.error('EmailJS Error:', error)
+      setSubmitStatus('❌ 전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const outdoorPackages = [
@@ -73,7 +129,7 @@ export default function BookingPage() {
           "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748689009/L1210421s_r0wkwt.png"
         ]
       },
-      popular: true
+      popular: false
     },
     {
       name: "옵션 2",
@@ -116,15 +172,15 @@ export default function BookingPage() {
       <Nav />
       
       {/* 메인 콘텐츠 */}
-      <main className="pt-20 pb-12">
+      <main className="pt-24 md:pt-32 pb-16 md:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* 페이지 제목 */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <div className="text-center mb-16 md:mb-20">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 md:mb-8">
               부산 야외촬영
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
               바다와 도시가 어우러진 부산에서만 가능한 특별한 야외촬영
             </p>
           </div>
@@ -456,37 +512,72 @@ export default function BookingPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="date" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      희망 촬영일 *
-                    </label>
-                    <input
-                      type="date"
-                      id="date"
-                      name="date"
-                      value={formData.date}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="time" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      희망 시간 *
+                    <label htmlFor="datetime1" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      🥇 희망 날짜/시간 1순위 *
                     </label>
                     <select
-                      id="time"
-                      name="time"
-                      value={formData.time}
+                      id="datetime1"
+                      name="datetime1"
+                      value={formData.datetime1}
                       onChange={handleInputChange}
                       required
                       className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
                     >
-                      <option value="">시간을 선택해주세요</option>
-                      <option value="오전 9시">오전 9시</option>
-                      <option value="오후 2시">오후 2시</option>
-                      <option value="오후 5시">오후 5시</option>
+                      <option value="">1순위 날짜/시간을 선택해주세요</option>
+                      {getAvailableDatetimeOptions('datetime1').map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
                     </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="datetime2" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      🥈 희망 날짜/시간 2순위 *
+                    </label>
+                    <select
+                      id="datetime2"
+                      name="datetime2"
+                      value={formData.datetime2}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    >
+                      <option value="">2순위 날짜/시간을 선택해주세요</option>
+                      {getAvailableDatetimeOptions('datetime2').map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      1순위와 다른 날짜/시간을 선택해주세요
+                    </p>
+                  </div>
+
+                  <div>
+                    <label htmlFor="datetime3" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      🥉 희망 날짜/시간 3순위 *
+                    </label>
+                    <select
+                      id="datetime3"
+                      name="datetime3"
+                      value={formData.datetime3}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    >
+                      <option value="">3순위 날짜/시간을 선택해주세요</option>
+                      {getAvailableDatetimeOptions('datetime3').map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      1, 2순위와 다른 날짜/시간을 선택해주세요
+                    </p>
                   </div>
 
                   <div>
@@ -502,13 +593,28 @@ export default function BookingPage() {
                       className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
                       placeholder="추가로 문의하실 내용이나 요청사항을 입력해주세요"
                     />
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      💡 예시: 친구와 함께 촬영 가능한가요? / 특정 컨셉 요청 등
+                    </p>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 btn-modern"
+                    disabled={isSubmitting}
+                    className={`w-full font-semibold py-3 px-6 rounded-lg transition-colors duration-300 btn-modern ${
+                      isSubmitting
+                        ? 'bg-gray-400 cursor-not-allowed'
+                        : 'bg-blue-600 hover:bg-blue-700 text-white'
+                    }`}
                   >
-                    예약 문의 전송
+                    {isSubmitting ? (
+                      <div className="flex items-center justify-center">
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                        전송 중...
+                      </div>
+                    ) : (
+                      '예약 문의 전송'
+                    )}
                   </button>
                 </form>
 
