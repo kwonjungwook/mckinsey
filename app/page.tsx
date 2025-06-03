@@ -266,7 +266,6 @@ export default function HomePage() {
             <div className="h-px bg-white/30 w-12 sm:w-16 md:w-24 mx-auto mb-4 md:mb-8"></div>
             <div className="space-y-2 sm:space-y-3 text-sm sm:text-base md:text-xl lg:text-2xl transition-all duration-700">
               <p className="text-balance">{heroImages[currentSlide]?.subtitle}</p>
-              <p className="opacity-90 text-balance">감각적인 연출과 완벽한 디테일로</p>
               <p className="opacity-80 hidden sm:block text-balance text-base md:text-lg">
                 당신이 꿈꿔왔던 그 모습, 지금 현실로 만나보세요
               </p>
@@ -354,7 +353,7 @@ export default function HomePage() {
                 href="/about"
                 className="border-2 border-black text-black hover:bg-black hover:text-white font-semibold py-4 md:py-5 px-8 md:px-10 rounded-lg transition-all duration-300 text-base md:text-lg btn-modern"
               >
-                📋 촬영 준비사항
+                📋 준비사항
               </Link>
             </div>
           </div>
@@ -383,7 +382,6 @@ export default function HomePage() {
 
               {/* 연락처 정보 */}
               <div className="text-center">
-                <h4 className="text-lg font-semibold text-white mb-4">📞 Contact</h4>
                 <div className="space-y-2 text-gray-300">
                   <p>📧 Email: kazuya7x@naver.com</p>
                   
@@ -417,14 +415,12 @@ export default function HomePage() {
               </p>
               <div className="flex justify-center items-center space-x-8 text-gray-500 text-xs md:text-sm">
                 <span className="flex items-center">
-                  🌊 퀄리티가 다른 바디프로필
+                  🌊 High Quality
                 </span>
                 <span className="flex items-center">
-                  ✨ 당신만의 특별한 순간
+                  ✨ professional photographer 
                 </span>
-                <span className="flex items-center">
-                  📷 전문 스튜디오
-                </span>
+                
               </div>
             </div>
           </div>

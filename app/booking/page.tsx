@@ -42,6 +42,7 @@ export default function BookingPage() {
       
       // 이메일 템플릿 파라미터
       const templateParams = {
+        to_email: 'kazuya7ssss@gmail.com',
         from_name: formData.name,
         from_phone: formData.phone,
         from_email: formData.email,
