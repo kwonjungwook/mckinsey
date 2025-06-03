@@ -25,7 +25,7 @@ export default function PortfolioPage() {
     },
     {
       id: 3,
-      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748673636/L1200780_v10geg.jpg",
+      src: "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748677590/L1530521_p9gduj.png",
       alt: "바디프로필 촬영 3", 
       width: 400,
       height: 650

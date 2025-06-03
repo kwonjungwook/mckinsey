@@ -401,41 +401,41 @@ export default function ExpertGuidePage() {
                 <table className="w-full text-xs sm:text-sm">
                   <thead>
                     <tr className="bg-white dark:bg-gray-700">
-                      <th className="p-2 sm:p-3 text-left font-semibold">기간</th>
-                      <th className="p-2 sm:p-3 text-center font-semibold">탄수화물<br className="sm:hidden" /><span className="sm:hidden">(g/kg)</span><span className="hidden sm:inline">(체중 1kg당)</span></th>
-                      <th className="p-2 sm:p-3 text-center font-semibold">수분<br className="sm:hidden" /><span className="sm:hidden">(ml/kg)</span><span className="hidden sm:inline">(체중 1kg당)</span></th>
-                      <th className="p-2 sm:p-3 text-center font-semibold">소금<br className="sm:hidden" /><span className="sm:hidden">(g/일)</span><span className="hidden sm:inline">(하루)</span></th>
-                      <th className="p-2 sm:p-3 text-center font-semibold">운동 강도</th>
+                      <th className="p-2 sm:p-3 text-left font-semibold text-gray-900 dark:text-white">기간</th>
+                      <th className="p-2 sm:p-3 text-center font-semibold text-gray-900 dark:text-white">탄수화물<br className="sm:hidden" /><span className="sm:hidden">(g/kg)</span><span className="hidden sm:inline">(체중 1kg당)</span></th>
+                      <th className="p-2 sm:p-3 text-center font-semibold text-gray-900 dark:text-white">수분<br className="sm:hidden" /><span className="sm:hidden">(ml/kg)</span><span className="hidden sm:inline">(체중 1kg당)</span></th>
+                      <th className="p-2 sm:p-3 text-center font-semibold text-gray-900 dark:text-white">소금<br className="sm:hidden" /><span className="sm:hidden">(g/일)</span><span className="hidden sm:inline">(하루)</span></th>
+                      <th className="p-2 sm:p-3 text-center font-semibold text-gray-900 dark:text-white">운동 강도</th>
                     </tr>
                   </thead>
                   <tbody className="space-y-1">
                     <tr className="bg-gray-50 dark:bg-gray-800">
-                      <td className="p-2 sm:p-3 font-medium">D-7~D-4</td>
-                      <td className="p-2 sm:p-3 text-center">4g</td>
-                      <td className="p-2 sm:p-3 text-center">35ml</td>
-                      <td className="p-2 sm:p-3 text-center">3g</td>
-                      <td className="p-2 sm:p-3 text-center">100%</td>
+                      <td className="p-2 sm:p-3 font-medium text-gray-900 dark:text-white">D-7~D-4</td>
+                      <td className="p-2 sm:p-3 text-center text-gray-900 dark:text-white">4g</td>
+                      <td className="p-2 sm:p-3 text-center text-gray-900 dark:text-white">35ml</td>
+                      <td className="p-2 sm:p-3 text-center text-gray-900 dark:text-white">3g</td>
+                      <td className="p-2 sm:p-3 text-center text-gray-900 dark:text-white">100%</td>
                     </tr>
                     <tr className="bg-orange-50 dark:bg-orange-900/20">
-                      <td className="p-2 sm:p-3 font-medium">D-3~D-2</td>
-                      <td className="p-2 sm:p-3 text-center font-bold text-orange-600">6g</td>
-                      <td className="p-2 sm:p-3 text-center">35ml</td>
-                      <td className="p-2 sm:p-3 text-center">3g</td>
-                      <td className="p-2 sm:p-3 text-center">70%</td>
+                      <td className="p-2 sm:p-3 font-medium text-gray-900 dark:text-white">D-3~D-2</td>
+                      <td className="p-2 sm:p-3 text-center font-bold text-orange-600 dark:text-orange-400">6g</td>
+                      <td className="p-2 sm:p-3 text-center text-gray-900 dark:text-white">35ml</td>
+                      <td className="p-2 sm:p-3 text-center text-gray-900 dark:text-white">3g</td>
+                      <td className="p-2 sm:p-3 text-center text-gray-900 dark:text-white">70%</td>
                     </tr>
                     <tr className="bg-purple-50 dark:bg-purple-900/20">
-                      <td className="p-2 sm:p-3 font-medium">D-1</td>
-                      <td className="p-2 sm:p-3 text-center font-bold text-purple-600">6g</td>
-                      <td className="p-2 sm:p-3 text-center font-bold text-purple-600">30ml</td>
-                      <td className="p-2 sm:p-3 text-center font-bold text-purple-600">2g</td>
-                      <td className="p-2 sm:p-3 text-center">0%</td>
+                      <td className="p-2 sm:p-3 font-medium text-gray-900 dark:text-white">D-1</td>
+                      <td className="p-2 sm:p-3 text-center font-bold text-purple-600 dark:text-purple-400">6g</td>
+                      <td className="p-2 sm:p-3 text-center font-bold text-purple-600 dark:text-purple-400">30ml</td>
+                      <td className="p-2 sm:p-3 text-center font-bold text-purple-600 dark:text-purple-400">2g</td>
+                      <td className="p-2 sm:p-3 text-center text-gray-900 dark:text-white">0%</td>
                     </tr>
                     <tr className="bg-red-50 dark:bg-red-900/20">
-                      <td className="p-2 sm:p-3 font-medium">D-Day</td>
-                      <td className="p-2 sm:p-3 text-center">소량 보충</td>
-                      <td className="p-2 sm:p-3 text-center">150ml/30분</td>
-                      <td className="p-2 sm:p-3 text-center">-</td>
-                      <td className="p-2 sm:p-3 text-center">펌핑만</td>
+                      <td className="p-2 sm:p-3 font-medium text-gray-900 dark:text-white">D-Day</td>
+                      <td className="p-2 sm:p-3 text-center text-gray-900 dark:text-white">소량 보충</td>
+                      <td className="p-2 sm:p-3 text-center text-gray-900 dark:text-white">150ml/30분</td>
+                      <td className="p-2 sm:p-3 text-center text-gray-900 dark:text-white">-</td>
+                      <td className="p-2 sm:p-3 text-center text-gray-900 dark:text-white">펌핑만</td>
                     </tr>
                   </tbody>
                 </table>
