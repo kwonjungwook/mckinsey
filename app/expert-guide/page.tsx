@@ -11,20 +11,21 @@ export default function ExpertGuidePage() {
       <Nav />
       
       {/* 메인 콘텐츠 */}
-      <main className="pt-22 sm:pt-26 md:pt-28 lg:pt-32 pb-12">
+      <main className="pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12">
         <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           
           {/* 페이지 제목 */}
           <div className="text-center mb-8 sm:mb-12">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight">
-              💪 바디프로필<br className="sm:hidden" />
-              <span className="sm:ml-2">전문가 가이드</span>
+              💪 바디프로필
+              <span className="block sm:inline sm:ml-2">전문가 가이드</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed px-4">
-              과학적 원리를 바탕으로 한<br className="sm:hidden" />
-              <span className="sm:ml-1">안전하고 효과적인 준비법입니다.</span><br className="hidden sm:block" />
-              하나의 일관된 전략으로<br className="sm:hidden" />
-              <span className="sm:ml-1">최고의 결과를 만들어보세요.</span>
+              과학적 원리를 바탕으로 한
+              <span className="block sm:inline sm:ml-1">안전하고 효과적인 준비법입니다.</span>
+              <span className="hidden sm:block mt-2"></span>
+              하나의 일관된 전략으로
+              <span className="block sm:inline sm:ml-1">최고의 결과를 만들어보세요.</span>
             </p>
             <div className="mt-4 sm:mt-6">
               <Link 
@@ -45,11 +46,12 @@ export default function ExpertGuidePage() {
               
               <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-4 sm:p-6 rounded-lg border border-blue-200 dark:border-purple-800 mb-6">
                 <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-900 dark:text-white mb-4">
-                  근육 팽창 + 피부 선명도 = <br>최적의 바디프로필</br>
+                  근육 팽창 + 피부 선명도 = 최적의 바디프로필
                 </h3>
                 <p className="text-center text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-                  탄수화물로 근육을 최대한 부풀리면서<br className="sm:hidden" />
-                  <span className="sm:ml-1">동시에 피부 아래 선명도를 높이는</span><br className="hidden sm:block" />
+                  탄수화물로 근육을 최대한 부풀리면서
+                  <span className="block sm:inline sm:ml-1">동시에 피부 아래 선명도를 높이는</span>
+                  <span className="hidden sm:block mt-2"></span>
                   <strong>과학적이고 안전한 방법</strong>입니다.
                 </p>
               </div>
@@ -61,17 +63,18 @@ export default function ExpertGuidePage() {
                   </h3>
                   <div className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed space-y-2 sm:space-y-3">
                     <p>
-                      근육 1g당 <strong>3-4g의 물</strong>을 저장할 수 있는<br className="sm:hidden" />
-                      <span className="sm:ml-1">글리코겐의 특성을 이용합니다.</span>
+                      근육 1g당 <strong>3-4g의 물</strong>을 저장할 수 있는
+                      <span className="block sm:inline sm:ml-1">글리코겐의 특성을 이용합니다.</span>
                     </p>
                     <p>
-                      평소보다 <strong>50% 더 많은 탄수화물</strong>을<br className="sm:hidden" />
-                      <span className="sm:ml-1">3-4일간 섭취하면</span><br className="hidden sm:block" />
+                      평소보다 <strong>50% 더 많은 탄수화물</strong>을
+                      <span className="block sm:inline sm:ml-1">3-4일간 섭취하면</span>
+                      <span className="hidden sm:block mt-2"></span>
                       근육이 평소보다 <strong>15-20% 더 부풀어</strong> 보입니다.
                     </p>
                     <p className="text-green-600 dark:text-green-400 font-medium">
-                      💡 결과: 같은 근육량이지만<br className="sm:hidden" />
-                      <span className="sm:ml-1">시각적으로 훨씬 크고 탄탄해 보임</span>
+                      💡 결과: 같은 근육량이지만
+                      <span className="block sm:inline sm:ml-1">시각적으로 훨씬 크고 탄탄해 보임</span>
                     </p>
                   </div>
                 </div>
@@ -82,16 +85,16 @@ export default function ExpertGuidePage() {
                   </h3>
                   <div className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed space-y-2 sm:space-y-3">
                     <p>
-                      <strong>핵심 원칙:</strong> 근육 내 수분은 최대화하고<br className="sm:hidden" />
-                      <span className="sm:ml-1">피부 아래 수분은 최적화합니다.</span>
+                      <strong>핵심 원칙:</strong> 근육 내 수분은 최대화하고
+                      <span className="block sm:inline sm:ml-1">피부 아래 수분은 최적화합니다.</span>
                     </p>
                     <p>
-                      평소 수분량을 <strong>끝까지 유지</strong>하다가<br className="sm:hidden" />
-                      <span className="sm:ml-1">촬영 당일에만 타이밍을 조절합니다.</span>
+                      평소 수분량을 <strong>끝까지 유지</strong>하다가
+                      <span className="block sm:inline sm:ml-1">촬영 당일에만 타이밍을 조절합니다.</span>
                     </p>
                     <p className="text-blue-600 dark:text-blue-400 font-medium">
-                      ✅ 목표: 근육은 풍선처럼 팽팽하게,<br className="sm:hidden" />
-                      <span className="sm:ml-1">피부는 종이처럼 얇게</span>
+                      ✅ 목표: 근육은 풍선처럼 팽팽하게,
+                      <span className="block sm:inline sm:ml-1">피부는 종이처럼 얇게</span>
                     </p>
                   </div>
                 </div>
@@ -141,8 +144,8 @@ export default function ExpertGuidePage() {
                   
                   <div className="mt-3 sm:mt-4 bg-gray-100 dark:bg-gray-800 p-3 sm:p-4 rounded-lg">
                     <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">
-                      🎯 목표: 몸의 기본 리듬을 유지하면서<br className="sm:hidden" />
-                      <span className="sm:ml-1">최적의 컨디션을 만드는 단계</span>
+                      🎯 목표: 몸의 기본 리듬을 유지하면서
+                      <span className="block sm:inline sm:ml-1">최적의 컨디션을 만드는 단계</span>
                     </p>
                   </div>
                 </div>
@@ -181,8 +184,9 @@ export default function ExpertGuidePage() {
                   
                   <div className="mt-3 sm:mt-4 bg-orange-100 dark:bg-orange-900/30 p-3 sm:p-4 rounded-lg">
                     <p className="text-xs sm:text-sm text-orange-700 dark:text-orange-300 font-medium">
-                      🎯 목표: 근육에 글리코겐을 가득 채워<br className="sm:hidden" />
-                      <span className="sm:ml-1">볼륨을 극대화하는 단계</span><br className="hidden sm:block" />
+                      🎯 목표: 근육에 글리코겐을 가득 채워
+                      <span className="block sm:inline sm:ml-1">볼륨을 극대화하는 단계</span>
+                      <span className="hidden sm:block mt-2"></span>
                       💪 효과: 이 시점부터 근육이 부풀어 오르기 시작
                     </p>
                   </div>
@@ -222,8 +226,9 @@ export default function ExpertGuidePage() {
                   
                   <div className="mt-3 sm:mt-4 bg-purple-100 dark:bg-purple-900/30 p-3 sm:p-4 rounded-lg">
                     <p className="text-xs sm:text-sm text-purple-700 dark:text-purple-300 font-medium">
-                      🎯 목표: 근육 볼륨은 최대로 유지하면서<br className="sm:hidden" />
-                      <span className="sm:ml-1">피부 아래 여분의 수분만 살짝 빼는 단계</span><br className="hidden sm:block" />
+                      🎯 목표: 근육 볼륨은 최대로 유지하면서
+                      <span className="block sm:inline sm:ml-1">피부 아래 여분의 수분만 살짝 빼는 단계</span>
+                      <span className="hidden sm:block mt-2"></span>
                       ✨ 효과: 근육 라인이 더욱 선명해지기 시작
                     </p>
                   </div>
@@ -263,126 +268,10 @@ export default function ExpertGuidePage() {
                   
                   <div className="mt-3 sm:mt-4 bg-red-100 dark:bg-red-900/30 p-3 sm:p-4 rounded-lg">
                     <p className="text-xs sm:text-sm text-red-700 dark:text-red-300 font-medium">
-                      🎯 목표: 3일간 쌓아온 근육 볼륨을<br className="sm:hidden" />
-                      <span className="sm:ml-1">완벽하게 유지하면서 최고 컨디션 발휘</span><br className="hidden sm:block" />
+                      🎯 목표: 3일간 쌓아온 근육 볼륨을
+                      <span className="block sm:inline sm:ml-1">완벽하게 유지하면서 최고 컨디션 발휘</span>
+                      <span className="hidden sm:block mt-2"></span>
                       🔥 결과: 근육 최대 팽창 + 피부 최고 선명도
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* 촬영 중 일관된 관리법 */}
-          <section className="mb-12 sm:mb-16">
-            <div className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 text-center">
-                📸 촬영 중 컨디션 유지법
-              </h2>
-              
-              <div className="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-4 sm:p-6 rounded-lg border border-emerald-200 dark:border-green-800">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4 text-center">
-                  💡 핵심 원칙: 3일간 만든 컨디션을 그대로 유지
-                </h3>
-                
-                <div className="grid sm:grid-cols-3 gap-3 sm:gap-4 mb-4">
-                  <div className="bg-white dark:bg-gray-700 p-3 sm:p-4 rounded-lg text-center">
-                    <h4 className="font-semibold text-emerald-600 dark:text-emerald-400 mb-2">
-                      💧 수분 보충
-                    </h4>
-                    <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
-                      <p>30분마다</p>
-                      <p><strong>물 150ml</strong></p>
-                      <p>조금씩 천천히</p>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white dark:bg-gray-700 p-3 sm:p-4 rounded-lg text-center">
-                    <h4 className="font-semibold text-emerald-600 dark:text-emerald-400 mb-2">
-                      🍯 에너지 유지
-                    </h4>
-                    <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
-                      <p>1시간마다</p>
-                      <p><strong>꿀 1티스푼</strong></p>
-                      <p>또는 바나나 1/4개</p>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white dark:bg-gray-700 p-3 sm:p-4 rounded-lg text-center">
-                    <h4 className="font-semibold text-emerald-600 dark:text-emerald-400 mb-2">
-                      💪 펌핑 유지
-                    </h4>
-                    <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
-                      <p>포즈 전마다</p>
-                      <p><strong>가벼운 긴장</strong></p>
-                      <p>3-5초 유지</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="text-center text-sm sm:text-base text-emerald-700 dark:text-emerald-300 font-medium">
-                  🎯 목표: 2-3시간 촬영 내내 D-1에서 만든<br className="sm:hidden" />
-                  <span className="sm:ml-1">최고 컨디션을 일정하게 유지하기</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* 촬영 후 회복 */}
-          <section className="mb-12 sm:mb-16">
-            <div className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 text-center">
-                🔄 촬영 후 안전한 회복
-              </h2>
-              
-              <div className="space-y-4 sm:space-y-6">
-                <div className="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 p-4 sm:p-6 rounded-lg border border-blue-200 dark:border-cyan-800">
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">
-                    ⚡ 즉시 회복 (0-2시간)
-                  </h3>
-                  
-                  <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-                    <div className="bg-white dark:bg-gray-700 p-3 sm:p-4 rounded-lg">
-                      <h4 className="font-semibold text-blue-600 dark:text-blue-400 mb-2">
-                        수분 정상화
-                      </h4>
-                      <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                        <p>• 이온음료 500ml</p>
-                        <p>• 물 500ml</p>
-                        <p>• 30분에 걸쳐 천천히</p>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-white dark:bg-gray-700 p-3 sm:p-4 rounded-lg">
-                      <h4 className="font-semibold text-blue-600 dark:text-blue-400 mb-2">
-                        영양 보충
-                      </h4>
-                      <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                        <p>• 바나나 2개</p>
-                        <p>• 견과류 한 줌</p>
-                        <p>• 소금 포함 간식</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-4 sm:p-6 rounded-lg border border-green-200 dark:border-emerald-800">
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">
-                    🏃‍♂️ 완전 회복 (24-48시간)
-                  </h3>
-                  
-                  <div className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed space-y-2 sm:space-y-3">
-                    <p>
-                      <strong>D+1:</strong> 탄수화물 4g/kg, 수분 35ml/kg로<br className="sm:hidden" />
-                      <span className="sm:ml-1">서서히 평소 수준으로 복귀</span>
-                    </p>
-                    <p>
-                      <strong>D+2:</strong> 완전히 평소 식단과 운동으로 복귀,<br className="sm:hidden" />
-                      <span className="sm:ml-1">충분한 수면과 휴식</span>
-                    </p>
-                    <p className="text-green-600 dark:text-green-400 font-medium">
-                      💡 48시간 내에 모든 지표가<br className="sm:hidden" />
-                      <span className="sm:ml-1">정상 범위로 돌아옵니다</span>
                     </p>
                   </div>
                 </div>
@@ -402,9 +291,21 @@ export default function ExpertGuidePage() {
                   <thead>
                     <tr className="bg-white dark:bg-gray-700">
                       <th className="p-2 sm:p-3 text-left font-semibold text-gray-900 dark:text-white">기간</th>
-                      <th className="p-2 sm:p-3 text-center font-semibold text-gray-900 dark:text-white">탄수화물<br className="sm:hidden" /><span className="sm:hidden">(g/kg)</span><span className="hidden sm:inline">(체중 1kg당)</span></th>
-                      <th className="p-2 sm:p-3 text-center font-semibold text-gray-900 dark:text-white">수분<br className="sm:hidden" /><span className="sm:hidden">(ml/kg)</span><span className="hidden sm:inline">(체중 1kg당)</span></th>
-                      <th className="p-2 sm:p-3 text-center font-semibold text-gray-900 dark:text-white">소금<br className="sm:hidden" /><span className="sm:hidden">(g/일)</span><span className="hidden sm:inline">(하루)</span></th>
+                      <th className="p-2 sm:p-3 text-center font-semibold text-gray-900 dark:text-white">
+                        탄수화물
+                        <span className="block sm:hidden">(g/kg)</span>
+                        <span className="hidden sm:inline">(체중 1kg당)</span>
+                      </th>
+                      <th className="p-2 sm:p-3 text-center font-semibold text-gray-900 dark:text-white">
+                        수분
+                        <span className="block sm:hidden">(ml/kg)</span>
+                        <span className="hidden sm:inline">(체중 1kg당)</span>
+                      </th>
+                      <th className="p-2 sm:p-3 text-center font-semibold text-gray-900 dark:text-white">
+                        소금
+                        <span className="block sm:hidden">(g/일)</span>
+                        <span className="hidden sm:inline">(하루)</span>
+                      </th>
                       <th className="p-2 sm:p-3 text-center font-semibold text-gray-900 dark:text-white">운동 강도</th>
                     </tr>
                   </thead>
@@ -472,8 +373,8 @@ export default function ExpertGuidePage() {
                     <p>• 근육 경련, 떨림, 심장 두근거림</p>
                     <p>• 극심한 피로감이나 무기력</p>
                     <p className="text-green-600 dark:text-green-400 font-semibold mt-3">
-                      👨‍⚕️ 위 증상이 나타나면 즉시 중단하고<br className="sm:hidden" />
-                      <span className="sm:ml-1">평소 식단으로 돌아가세요</span>
+                      👨‍⚕️ 위 증상이 나타나면 즉시 중단하고
+                      <span className="block sm:inline sm:ml-1">평소 식단으로 돌아가세요</span>
                     </p>
                   </div>
                 </div>
@@ -484,14 +385,15 @@ export default function ExpertGuidePage() {
           {/* CTA 섹션 */}
           <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 text-center text-white">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 leading-tight">
-              과학적이고 안전한<br className="sm:hidden" />
-              <span className="sm:ml-2">바디프로필 촬영을 원하신다면</span>
+              과학적이고 안전한
+              <span className="block sm:inline sm:ml-2">바디프로필 촬영을 원하신다면</span>
             </h2>
             <p className="text-sm sm:text-base md:text-lg mb-4 sm:mb-6 opacity-90 leading-relaxed">
-              하나의 일관된 전략으로<br className="sm:hidden" />
-              <span className="sm:ml-1">건강하게 최고의 결과를 만들어보세요.</span><br className="hidden sm:block" />
-              개인별 맞춤 상담이 필요하시면<br className="sm:hidden" />
-              <span className="sm:ml-1">언제든지 연락주세요.</span>
+              하나의 일관된 전략으로
+              <span className="block sm:inline sm:ml-1">건강하게 최고의 결과를 만들어보세요.</span>
+              <span className="hidden sm:block mt-2"></span>
+              개인별 맞춤 상담이 필요하시면
+              <span className="block sm:inline sm:ml-1">언제든지 연락주세요.</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link 
