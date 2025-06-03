@@ -24,7 +24,6 @@ export default function Footer() {
 
           {/* 연락처 정보 */}
           <div className="text-center">
-            <h4 className="text-lg font-semibold text-white mb-4">📞 Contact</h4>
             <div className="space-y-2 text-gray-300">
               <p>📧 Email: kazuya7x@naver.com</p>
             </div>

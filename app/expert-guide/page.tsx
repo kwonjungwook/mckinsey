@@ -11,7 +11,7 @@ export default function ExpertGuidePage() {
       <Nav />
       
       {/* 메인 콘텐츠 */}
-      <main className="pt-16 md:pt-20 pb-12">
+      <main className="pt-22 sm:pt-26 md:pt-28 lg:pt-32 pb-12">
         <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           
           {/* 페이지 제목 */}
