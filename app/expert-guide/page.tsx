@@ -45,7 +45,7 @@ export default function ExpertGuidePage() {
               
               <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-4 sm:p-6 rounded-lg border border-blue-200 dark:border-purple-800 mb-6">
                 <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-900 dark:text-white mb-4">
-                  근육 팽창 + 피부 선명도 = 최적의 바디프로필
+                  근육 팽창 + 피부 선명도 = <br>최적의 바디프로필</br>
                 </h3>
                 <p className="text-center text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                   탄수화물로 근육을 최대한 부풀리면서<br className="sm:hidden" />
