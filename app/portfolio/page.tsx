@@ -266,7 +266,7 @@ export default function PortfolioPage() {
                 onClick={() => handleImageClick(index)}
               >
                 <div className="relative overflow-hidden rounded-lg shadow-lg bg-white dark:bg-gray-800 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98]">
-                  <div className="relative w-full" style={{ aspectRatio: `${image.width}/${image.height}` }}>
+                  <div className="relative w-full aspect-[3/4]">
                     <Image
                       src={image.src}
                       alt={image.alt}
