@@ -138,7 +138,7 @@ export default function BookingPage() {
         ],
         shootingImages: [
           "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675711/10_qayg67.png",
-          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748675711/8_i9wdsu.png"
+          "https://res.cloudinary.com/dnmxnbicu/image/upload/v1748873704/20_kj7ste.png"
         ]
       },
       popular: false
