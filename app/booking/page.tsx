@@ -224,20 +224,19 @@ export default function BookingPage() {
                     </div>
                   </div>
 
-                  {/* 이미지 갤러리 */}
+                 {/* 이미지 갤러리 */}
                   <div className="mb-6">
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
                       📷 촬영지 & 작품 미리보기
                     </h4>
                     <div className="grid grid-cols-2 gap-3">
                       {option.images.locationImages.map((image, imgIndex) => (
-                        <div key={`location-${imgIndex}`} className="relative">
+                        <div key={`location-${imgIndex}`} className="relative w-full aspect-[4/3]">
                           <Image 
                             src={image} 
                             alt={`${option.subtitle} 장소 ${imgIndex + 1}`}
-                            width={200}
-                            height={128}
-                            className="w-full h-32 object-contain bg-gray-100 dark:bg-gray-700 rounded-lg"
+                            fill
+                            className="object-cover bg-gray-100 dark:bg-gray-700 rounded-lg"
                             unoptimized
                           />
                           <div className="absolute top-2 left-2 bg-blue-500 text-white px-2 py-1 rounded text-xs">
@@ -246,13 +245,12 @@ export default function BookingPage() {
                         </div>
                       ))}
                       {option.images.shootingImages.map((image, imgIndex) => (
-                        <div key={`shooting-${imgIndex}`} className="relative">
+                        <div key={`shooting-${imgIndex}`} className="relative w-full aspect-[3/4]">
                           <Image 
                             src={image} 
                             alt={`${option.subtitle} 작품 ${imgIndex + 1}`}
-                            width={200}
-                            height={128}
-                            className="w-full h-32 object-contain bg-gray-100 dark:bg-gray-700 rounded-lg"
+                            fill
+                            className="object-cover bg-gray-100 dark:bg-gray-700 rounded-lg"
                             unoptimized
                           />
                           <div className="absolute top-2 left-2 bg-purple-500 text-white px-2 py-1 rounded text-xs">
