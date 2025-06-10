@@ -13,7 +13,7 @@ export default function Footer() {
           
           {/* 스튜디오 소개 */}
           <div className="text-center md:text-left">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-serif italic" style={{ fontFamily: 'Dancing Script, cursive' }}>
+            <h3 className="text-2xl md:text-3xl font-light text-white mb-4" style={{ fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif', fontWeight: '300', letterSpacing: '1px' }}>
               Mckinsey Studio
             </h3>
             <p className="text-gray-300 leading-relaxed text-balance">

@@ -6,22 +6,7 @@ import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Nav from '../components/Nav'
 
-// 화면 크기 감지 훅
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(true)
 
-  useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 768) // md 브레이크포인트
-    }
-
-    checkIsMobile()
-    window.addEventListener('resize', checkIsMobile)
-    return () => window.removeEventListener('resize', checkIsMobile)
-  }, [])
-
-  return isMobile
-}
 
 export default function HomePage() {
   // 이미지 타입 정의
@@ -117,21 +102,9 @@ export default function HomePage() {
   // 상태 관리
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlay, setIsAutoPlay] = useState(true)
-  const [touchStart, setTouchStart] = useState<number | null>(null)
+    const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
-  const [isMounted, setIsMounted] = useState(false)
   const sliderRef = useRef<HTMLElement>(null)
-  const isMobile = useIsMobile() // 모바일 감지
-
-  // 현재 화면 크기에 맞는 이미지 URL 반환
-  const getCurrentImageSrc = (image: HeroImage) => {
-    return isMobile && image.mobileSrc ? image.mobileSrc : image.src
-  }
-
-  // 컴포넌트 마운트 확인
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
 
   // 슬라이드 이동 함수들
   const goToNextSlide = useCallback(() => {
@@ -148,14 +121,14 @@ export default function HomePage() {
 
   // 자동 슬라이드 기능
   useEffect(() => {
-    if (!isMounted || !isAutoPlay) return
+    if (!isAutoPlay) return
 
     const interval = setInterval(() => {
       goToNextSlide()
     }, 4000) // 4초마다 변경
     
     return () => clearInterval(interval)
-  }, [isAutoPlay, goToNextSlide, isMounted])
+  }, [isAutoPlay, goToNextSlide])
 
   // 최소 스와이프 거리
   const minSwipeDistance = 50
@@ -225,15 +198,32 @@ export default function HomePage() {
                 index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
               }`}
             >
-              <Image
-                src={getCurrentImageSrc(image)}
-                alt={image.alt}
-                fill
-                className="object-cover object-center"
-                priority={index === 0}
-                sizes="100vw"
-                quality={85}
-              />
+              {/* 데스크톱 이미지 */}
+              <div className="hidden md:block w-full h-full">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover object-center"
+                  priority={index === 0}
+                  sizes="100vw"
+                  quality={85}
+                />
+              </div>
+              
+              {/* 모바일 이미지 */}
+              <div className="block md:hidden w-full h-full">
+                <Image
+                  src={image.mobileSrc || image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover object-center"
+                  priority={index === 0}
+                  sizes="100vw"
+                  quality={85}
+                />
+              </div>
+              
               {/* 어두운 오버레이 */}
               <div className="absolute inset-0 bg-black/10 z-10"></div>
             </div>
@@ -243,7 +233,7 @@ export default function HomePage() {
           <button
             onClick={goToPrevSlide}
             type="button"
-            className="absolute left-2 sm:left-4 md:left-8 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-1.5 sm:p-2 md:p-3 transition-all duration-300 border border-white/20"
+            className="absolute left-2 sm:left-4 md:left-8 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 rounded-full p-1.5 sm:p-2 md:p-3 transition-all duration-300 border border-white/20"
             aria-label="이전 슬라이드"
           >
             <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
@@ -252,7 +242,7 @@ export default function HomePage() {
           <button
             onClick={goToNextSlide}
             type="button"
-            className="absolute right-2 sm:right-4 md:right-8 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-1.5 sm:p-2 md:p-3 transition-all duration-300 border border-white/20"
+            className="absolute right-2 sm:right-4 md:right-8 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 rounded-full p-1.5 sm:p-2 md:p-3 transition-all duration-300 border border-white/20"
             aria-label="다음 슬라이드"
           >
             <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
@@ -260,11 +250,11 @@ export default function HomePage() {
 
           {/* 중앙 텍스트 콘텐츠 */}
           <div className="relative z-20 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-6 transition-all duration-700 leading-tight">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light mb-3 md:mb-6 transition-all duration-700 leading-tight" style={{ fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif', fontWeight: '300', letterSpacing: '1px' }}>
               {heroImages[currentSlide]?.title}
             </h1>
             <div className="h-px bg-white/30 w-12 sm:w-16 md:w-24 mx-auto mb-4 md:mb-8"></div>
-            <div className="space-y-2 sm:space-y-3 text-sm sm:text-base md:text-xl lg:text-2xl transition-all duration-700">
+            <div className="space-y-2 sm:space-y-3 text-sm sm:text-base md:text-xl lg:text-2xl transition-all duration-700" style={{ fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif', fontWeight: '300', letterSpacing: '0.5px' }}>
               <p className="text-balance">{heroImages[currentSlide]?.subtitle}</p>
               <p className="opacity-80 hidden sm:block text-balance text-base md:text-lg">
                 당신이 꿈꿔왔던 그 모습, 지금 현실로 만나보세요
@@ -311,7 +301,7 @@ export default function HomePage() {
                   {/* 호버 오버레이 */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="text-white font-medium bg-white/20 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-sm md:text-base">
+                      <span className="text-white font-medium bg-white/20 px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-sm md:text-base">
                         View
                       </span>
                     </div>
@@ -327,7 +317,7 @@ export default function HomePage() {
               href="/portfolio"
               className="inline-block text-gray-600 hover:text-gray-900 font-medium transition-colors duration-300 text-base md:text-lg"
             >
-              📸 Portfolio 전체보기 →
+              Portfolio 전체보기 →
             </Link>
           </div>
         </section>
@@ -347,13 +337,13 @@ export default function HomePage() {
                 href="/booking"
                 className="bg-black hover:bg-gray-800 text-white font-semibold py-4 md:py-5 px-8 md:px-10 rounded-lg transition-colors duration-300 text-base md:text-lg btn-modern"
               >
-                🏖️ 예약하기
+                예약하기
               </Link>
               <Link 
                 href="/about"
                 className="border-2 border-black text-black hover:bg-black hover:text-white font-semibold py-4 md:py-5 px-8 md:px-10 rounded-lg transition-all duration-300 text-base md:text-lg btn-modern"
               >
-                📋 준비사항
+                준비사항
               </Link>
             </div>
           </div>
@@ -371,7 +361,7 @@ export default function HomePage() {
               
               {/* 스튜디오 소개 */}
               <div className="text-center md:text-left">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-serif italic" style={{ fontFamily: 'Dancing Script, cursive' }}>
+                <h3 className="text-2xl md:text-3xl font-light text-white mb-4" style={{ fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif', fontWeight: '300', letterSpacing: '1px' }}>
                   Mckinsey Studio
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
@@ -383,23 +373,23 @@ export default function HomePage() {
               {/* 연락처 정보 */}
               <div className="text-center">
                 <div className="space-y-2 text-gray-300">
-                  <p>📧 Email: kazuya7x@naver.com</p>
+                  <p>Email: kazuya7x@naver.com</p>
                   
                 </div>
               </div>
 
               {/* 소셜 미디어 & 메뉴 */}
               <div className="text-center md:text-right">
-                <h4 className="text-lg font-semibold text-white mb-4">🔗 Quick Links</h4>
+                <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
                 <div className="space-y-2">
                   <Link href="/booking" className="block text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                    🏖️ 예약
+                    예약
                   </Link>
                   <Link href="/portfolio" className="block text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                    📸 Portfolio 보기
+                    Portfolio 보기
                   </Link>
                   <Link href="/about" className="block text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                    📋 촬영 준비사항
+                    촬영 준비사항
                   </Link>
                 </div>
               </div>
@@ -415,10 +405,10 @@ export default function HomePage() {
               </p>
               <div className="flex justify-center items-center space-x-8 text-gray-500 text-xs md:text-sm">
                 <span className="flex items-center">
-                  🌊 High Quality
+                  High Quality
                 </span>
                 <span className="flex items-center">
-                  ✨ professional photographer 
+                  Professional Photographer 
                 </span>
                 
               </div>
