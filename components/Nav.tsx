@@ -2,10 +2,35 @@
 
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
+  
+  // 홈페이지에서는 흰색, 다른 페이지에서는 검은색
+  const isHomePage = pathname === '/'
+  
+  // 색상 클래스들을 미리 정의
+  const logoClasses = isHomePage 
+    ? 'text-white drop-shadow-lg'
+    : 'text-gray-900'
+  
+  const menuClasses = isHomePage
+    ? 'text-white/90 hover:text-white drop-shadow-md'
+    : 'text-gray-600 hover:text-gray-900'
+    
+  const buttonClasses = isHomePage
+    ? 'text-white hover:text-white hover:bg-white/10 focus:ring-white/30'
+    : 'text-gray-900 hover:text-gray-700 hover:bg-gray-100 focus:ring-gray-300'
+    
+  const mobileMenuBg = isHomePage 
+    ? 'bg-black/80'
+    : 'bg-white/95 backdrop-blur-sm'
+    
+  // 흰색 배경 제거 - 모든 페이지에서 투명 배경 사용
+  const bgColor = ''
 
   const menuItems = [
     { href: '/booking', label: 'Booking', icon: '' },
@@ -15,14 +40,14 @@ export default function Nav() {
   ]
 
   return (
-    <nav className="fixed w-full top-0 z-50">
+    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${bgColor}`}>
       <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20 md:h-24 w-full">
+        <div className="flex justify-between items-center h-16 md:h-20 w-full">
           {/* 로고 - 왼쪽 끝 */}
           <div className="flex-shrink-0" style={{ width: '40%' }}>
             <Link 
               href="/" 
-              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white transition-all duration-300"
+              className={`text-2xl md:text-3xl lg:text-4xl font-light transition-all duration-300 ${logoClasses}`}
               style={{ fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif', fontWeight: '300', letterSpacing: '1px' }}
             >
               Mckinsey Studio
@@ -36,7 +61,7 @@ export default function Nav() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group relative text-white/90 hover:text-white px-4 py-3 text-base md:text-lg font-medium transition-all duration-300 transform hover:-translate-y-0.5"
+                  className={`group relative px-4 py-3 text-base md:text-lg font-medium transition-all duration-300 transform hover:-translate-y-0.5 ${menuClasses}`}
                   style={{ fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif', fontWeight: '400', letterSpacing: '0.5px' }}
                 >
                   {item.label}
@@ -50,7 +75,7 @@ export default function Nav() {
           <div className="md:hidden flex justify-end" style={{ width: '40%' }}>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-3 rounded-xl text-white hover:text-blue-300 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white/30 transition-all duration-300"
+              className={`inline-flex items-center justify-center p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-inset transition-all duration-300 ${buttonClasses}`}
               aria-expanded="false"
             >
               <span className="sr-only">메뉴 열기</span>
@@ -67,12 +92,12 @@ export default function Nav() {
       {/* 모바일 메뉴 */}
               {isOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-4 pb-6 space-y-2 sm:px-3 bg-black/80 shadow-2xl">
+          <div className={`px-2 pt-4 pb-6 space-y-2 sm:px-3 shadow-2xl ${mobileMenuBg}`}>
             {menuItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="group text-white/90 hover:text-white block px-4 py-4 text-lg font-medium transition-all duration-300"
+                className={`group block px-4 py-4 text-lg font-medium transition-all duration-300 ${menuClasses}`}
                 style={{ fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif', fontWeight: '400', letterSpacing: '0.5px' }}
                 onClick={() => setIsOpen(false)}
               >

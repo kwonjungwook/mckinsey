@@ -207,7 +207,7 @@ export default function PortfolioPage() {
       <Nav />
       
       {/* 메인 콘텐츠 */}
-      <main className="pt-16 md:pt-24 lg:pt-32 pb-12 md:pb-16 lg:pb-20">
+      <main className="pt-24 md:pt-32 pb-12 md:pb-16 lg:pb-20">
         <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           
           {/* 페이지 제목 */}
